@@ -1,2 +1,2 @@
-# -JustStreamIt
+# JustStreamIt
 Netflix page clone
