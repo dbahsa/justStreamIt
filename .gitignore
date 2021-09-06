@@ -10,10 +10,10 @@ venv.bak/
 # Dossier
 _test_scripts
 .DS_Store
+ 
 
-__pycache__  
-
-# Fichiers .py
+# Fichiers
+_index.html
 
 
 # Fichiers .txt
