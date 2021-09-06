@@ -1,0 +1,19 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Dossier
+_test_scripts
+.DS_Store
+
+__pycache__  
+
+# Fichiers .py
+
+
+# Fichiers .txt
