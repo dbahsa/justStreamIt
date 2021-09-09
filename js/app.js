@@ -1,5 +1,5 @@
-const images = document.querySelectorAll('#galery img');
+const images = document.querySelectorAll('#gallery img');
 
-for (let i = 1; i < images.length; i++) {
+for (let i = 4; i < images.length; i++) {
     images[i].classList.add('hidden');
 }

@@ -1,14 +1,18 @@
 .container {
-    text-align: center;
+    text-align: center;;
 }
 
+h3 {
+    text-align: center;
+}
 .row { 
     display: flex; 
     align-items: center; 
-    justify-content: center; 
 } 
 
-* {box-sizing: border-box;}
+* {
+    box-sizing: border-box;
+}
 
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -23,6 +27,7 @@
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
+
 [class*="col-"] {
     float: left;
     padding: 15px;
@@ -33,6 +38,23 @@
     font-weight: bolder;
 }
 
-#galery img.hidden {
+#gallery img.hidden {
     display:none;
+}
+
+.slider {
+    display: flex;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0px;
+    padding: 0px 4%;
+    /*touch-action: pan-y;*/
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.slide {
+    width: 300px;
+    flex-shrink: 0;
+    height: 100%;
 }
