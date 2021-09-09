@@ -5,6 +5,7 @@
 h3 {
     text-align: center;
 }
+
 .row { 
     display: flex; 
     align-items: center; 
@@ -53,8 +54,3 @@ h3 {
     padding-right: 0px;
 }
 
-.slide {
-    width: 300px;
-    flex-shrink: 0;
-    height: 100%;
-}
