@@ -103,6 +103,24 @@ window.onclick = function(event) {
   }
 }
 
+// *********** URLS ***********
+/* --> To get the best movie data regardless category:
+
+fetch("http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score")
+  .then(data => data.json())
+  .then(d => console.log(d["results"][0]["image_url"]))
+  .catch(err => console.log(err));
+
+--> movies/categ: 
+
+* Best movie: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score
+* comedy: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=comedy
+* sci-fi: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=sci-fi
+* biography: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=Biography
+* animation: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=Animation
+
+*/
+
 
 // ****** Cateogies *************
 
