@@ -136,30 +136,61 @@ function veryBestMovie(movie) {
 
 // 1. Fetch the url for the 7 best rated movies regardless their genre,
 // there are on 2 pages:
-const urlP1 = 'http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score';
-const urlP2 = 'http://127.0.0.1:8000/api/v1/titles/?page=2&sort_by=-imdb_score';
-// There's a 'page=2' right before the sorting statement... that may be useful!
+const url7BestMoviesP1 = 'http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score';
+const url7BestMoviesP2 = 'http://127.0.0.1:8000/api/v1/titles/?page=2&sort_by=-imdb_score';
+const url7BestMovies = []; // list of all 7 best movies
+
+// fetching for the first 5 urls on page 1
+fetch(url7BestMoviesP1)
+  .then(data => data.json())
+  .then(d => {
+    a = d.results.length;
+    for(let i=0; i<a; i++) {
+      url7BestMovies.push(`${d.results[i].url}`);
+    }
+  })
+  .catch(err => console.log(err.message));
+
+// fetching for the first 2 urls on page 2
+fetch(url7BestMoviesP2)
+  .then(data => data.json())
+  .then(d => {
+    a = d.results.length;
+    for(let i=0; i<2; i++) {
+      url7BestMovies.push(`${d.results[i].url}`);
+    }
+  })
+  .catch(err => console.log(err.message));
+
+// get full list of the 7 best rated movies; then go get the modals data
+
+console.log(url7BestMovies);
+
+
+
+
+
+
+/*for(let i=0; i<a; i++) {
+    console.log(movie.results[i].url);
+    
+    console.log(movie.results[i].image_url);
+    console.log(movie.results[i].title);
+    console.log(movie.results[i].genres);
+    console.log(movie.results[i].date_published);
+    console.log(movie.results[i].rated);
+    console.log(movie.results[i].imdb_score);
+    console.log(movie.results[i].directors);
+    console.log(movie.results[i].actors);
+    console.log(movie.results[i].duration);
+    console.log(movie.results[i].countries);
+    console.log(movie.results[i].worldwide_gross_income);
+    console.log(movie.results[i].description);
+    */
+
+
 
 /*
-let urlM="";
-fetch(urlBestMovie)
-  .then(data => data.json())
-  .then(d => urlM = d.results[0].url)
-  .catch(err => console.log(err.message));
-
-// 2. From url ('urlM') get the requested data for the best movie:
-
-fetch(urlM)
-  .then(data => data.json())
-  .then(d => veryBestMovie(d))
-  .catch(err => console.log(err.message));
-
-function veryBestMovie(movie) {
-    console.log(movie.title);
-    console.log(movie.description);
-    console.log(movie.image_url);
-}
-*/
 
 ==========
 
