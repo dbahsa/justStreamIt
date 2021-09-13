@@ -103,16 +103,82 @@ window.onclick = function(event) {
   }
 }
 
-// *********** URLS ***********
-/* --> To get the best movie data regardless category:
+// *********** FETCH VERY BEST MOVIE ********************
+// A. To get the best movie data regardless its category:
 
-fetch("http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score")
+// 1. Fetch the url for the best rated movie regardless of genre,
+// and get the url ('urlM') of the first movie:
+/*
+const urlBestMovie = "http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score";
+let urlM="";
+fetch(urlBestMovie)
   .then(data => data.json())
-  .then(d => console.log(d["results"][0]["image_url"]))
-  .catch(err => console.log(err));
+  .then(d => urlM = d.results[0].url)
+  .catch(err => console.log(err.message));
 
+// 2. From url ('urlM') get the requested data for the best movie:
+
+fetch(urlM)
+  .then(data => data.json())
+  .then(d => veryBestMovie(d))
+  .catch(err => console.log(err.message));
+
+function veryBestMovie(movie) {
+    console.log(movie.title);
+    console.log(movie.description);
+    console.log(movie.image_url);
+}
+*/
+
+
+// *********** FETCH THE 7 BEST MOVIES ***********************
+// B. To get the 7 best movies data regardless their category:
+
+// 1. Fetch the url for the 7 best rated movies regardless their genre,
+// there are on 2 pages:
+const urlP1 = 'http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score';
+const urlP2 = 'http://127.0.0.1:8000/api/v1/titles/?page=2&sort_by=-imdb_score';
+// There's a 'page=2' right before the sorting statement... that may be useful!
+
+/*
+let urlM="";
+fetch(urlBestMovie)
+  .then(data => data.json())
+  .then(d => urlM = d.results[0].url)
+  .catch(err => console.log(err.message));
+
+// 2. From url ('urlM') get the requested data for the best movie:
+
+fetch(urlM)
+  .then(data => data.json())
+  .then(d => veryBestMovie(d))
+  .catch(err => console.log(err.message));
+
+function veryBestMovie(movie) {
+    console.log(movie.title);
+    console.log(movie.description);
+    console.log(movie.image_url);
+}
+*/
+
+==========
+
+let bestRatedMovieUrl = [];
+
+function getMovieUrl() {
+  fetch("http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score")
+    .then(data => data.json())
+    .then(d => bestRatedMovieUrl.push(d["results"]))
+    .catch(err => console.log(err.message));
+}
+
+console.log(bestRatedMovieUrl);
+
+
+
+
+let bestRatedMovieUrl = d["results"][0]["url"]
 --> movies/categ: 
-
 * Best movie: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score
 * comedy: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=comedy
 * sci-fi: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=sci-fi
