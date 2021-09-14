@@ -78,7 +78,7 @@ function showSlides(n) {
 
 // /* *********** Modal ********* *//
 // Get the modal
-var modal = document.getElementById("myModal");
+/*var modal = document.getElementById("myModal");
 
 // Get the img that opens the modal
 var btn = document.getElementById("myBtn");
@@ -102,6 +102,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+*/
 
 // *********** FETCH FOR THE VERY BEST MOVIE ********************
 // A. To get the best movie data regardless its category:
@@ -149,7 +150,6 @@ let filterPage2 = 'page=2';
 // there are on 2 pages:
 const url7BestMoviesP1 = coreApiUrl + filter7BestMovies;
 const url7BestMoviesP2 = coreApiUrl + filterPage2 + '&' + filter7BestMovies;
-
 
 // function to fetch data from api
 function goFetch() {
