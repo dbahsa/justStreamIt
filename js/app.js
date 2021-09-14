@@ -103,24 +103,24 @@ window.onclick = function(event) {
   }
 }
 
-// *********** FETCH VERY BEST MOVIE ********************
+// *********** FETCH FOR THE VERY BEST MOVIE ********************
 // A. To get the best movie data regardless its category:
+const coreApiUrl = "http://127.0.0.1:8000/api/v1/titles/?";
+const theBestMovieUrlFilter = "sort_by=-imdb_score";
 
-// 1. Fetch the url for the best rated movie regardless of genre,
-// and get the url ('urlM') of the first movie:
+// 1. Fetch the url for the best rated movies regardless of genre,
+// then, get the  url of the best rated movi; therafter, fetch for requested data:
 /*
-const urlBestMovie = "http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score";
-let urlM="";
+const urlBestMovie = coreApiUrl + theBestMovieUrlFilter;
+
 fetch(urlBestMovie)
   .then(data => data.json())
-  .then(d => urlM = d.results[0].url)
-  .catch(err => console.log(err.message));
-
-// 2. From url ('urlM') get the requested data for the best movie:
-
-fetch(urlM)
-  .then(data => data.json())
-  .then(d => veryBestMovie(d))
+  .then(d => {
+    fetch(d.results[0].url)
+      .then(data => data.json())
+      .then(d => veryBestMovie(d))
+      .catch(err => console.log(err.message));
+  })
   .catch(err => console.log(err.message));
 
 function veryBestMovie(movie) {
@@ -131,49 +131,85 @@ function veryBestMovie(movie) {
 */
 
 
-// *********** FETCH THE 7 BEST MOVIES ***********************
+
+// *********** FETCH FOR THE 7 BEST MOVIES ***********************
 // B. To get the 7 best movies data regardless their category:
+
+
+// $$$$$$$ it does work!!! ******
+/*
+
+const coreApiUrl = "http://127.0.0.1:8000/api/v1/titles/?";
+const theBestMovieUrlFilter = "sort_by=-imdb_score";
+
+let filter7BestMovies = 'sort_by=-imdb_score';
+let filterPage2 = 'page=2';
 
 // 1. Fetch the url for the 7 best rated movies regardless their genre,
 // there are on 2 pages:
-const url7BestMoviesP1 = 'http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score';
-const url7BestMoviesP2 = 'http://127.0.0.1:8000/api/v1/titles/?page=2&sort_by=-imdb_score';
-const url7BestMovies = []; // list of all 7 best movies
-
-// fetching for the first 5 urls on page 1
-fetch(url7BestMoviesP1)
-  .then(data => data.json())
-  .then(d => {
-    a = d.results.length;
-    for(let i=0; i<a; i++) {
-      url7BestMovies.push(`${d.results[i].url}`);
-    }
-  })
-  .catch(err => console.log(err.message));
-
-// fetching for the first 2 urls on page 2
-fetch(url7BestMoviesP2)
-  .then(data => data.json())
-  .then(d => {
-    a = d.results.length;
-    for(let i=0; i<2; i++) {
-      url7BestMovies.push(`${d.results[i].url}`);
-    }
-  })
-  .catch(err => console.log(err.message));
-
-// get full list of the 7 best rated movies; then go get the modals data
-
-console.log(url7BestMovies);
+const url7BestMoviesP1 = coreApiUrl + filter7BestMovies;
+const url7BestMoviesP2 = coreApiUrl + filterPage2 + '&' + filter7BestMovies;
 
 
-
-
-
-
-/*for(let i=0; i<a; i++) {
-    console.log(movie.results[i].url);
+// function to fetch data from api
+function goFetch() {
     
+    for(let i=0; i<5; i++) {
+      fetch(url7BestMoviesP1)
+          .then(data => data.json())
+          .then(d => {
+            fetch(d.results[i].url)
+              .then(data => data.json())
+              .then(d => veryBestMovie(d))
+              .catch(err => console.log(err.message));
+          })
+          .catch(err => console.log(err.message));
+      };
+    
+    setTimeout(function() {
+        for(let i=0; i<2; i++) {
+          fetch(url7BestMoviesP2)
+              .then(data => data.json())
+              .then(d => {
+                fetch(d.results[i].url)
+                  .then(data => data.json())
+                  .then(d => veryBestMovie(d))
+                  .catch(err => console.log(err.message));
+              })
+              .catch(err => console.log(err.message));
+        }
+    }, 1000);
+
+    function veryBestMovie(movie) {
+        console.log(movie.title);
+        console.log(movie.id);
+        //console.log(movie.image_url);
+    }
+}
+
+goFetch();
+
+
+
+// $$$$$$$ end Trial *******
+
+
+// 4. Fetch data for each individual movie for modal display:
+// First the url for each movie, then fetch for data:
+
+for(let i=0; i<url7BestMovies.length; i++) {
+  let urlM="";
+  fetch(i)
+    .then(data => data.json())
+    .then(d => urlM = d.results[0].url)
+    .catch(err => console.log(err.message));
+  
+    fetch(urlM)
+    .then(data => data.json())
+    .then(d => the7BestMovies(d))
+    .catch(err => console.log(err.message));
+  
+  function the7BestMovies(movie) {
     console.log(movie.results[i].image_url);
     console.log(movie.results[i].title);
     console.log(movie.results[i].genres);
@@ -186,72 +222,74 @@ console.log(url7BestMovies);
     console.log(movie.results[i].countries);
     console.log(movie.results[i].worldwide_gross_income);
     console.log(movie.results[i].description);
-    */
-
-
-
-/*
-
-==========
-
-let bestRatedMovieUrl = [];
-
-function getMovieUrl() {
-  fetch("http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score")
-    .then(data => data.json())
-    .then(d => bestRatedMovieUrl.push(d["results"]))
-    .catch(err => console.log(err.message));
+  }
 }
+*/
 
-console.log(bestRatedMovieUrl);
+// ***************** DATA REQUIRED FOR MODALS *************
+/*
+console.log(movie.results[i].url);
+console.log(movie.results[i].image_url);
+console.log(movie.results[i].title);
+console.log(movie.results[i].genres);
+console.log(movie.results[i].date_published);
+console.log(movie.results[i].rated);
+console.log(movie.results[i].imdb_score);
+console.log(movie.results[i].directors);
+console.log(movie.results[i].actors);
+console.log(movie.results[i].duration);
+console.log(movie.results[i].countries);
+console.log(movie.results[i].worldwide_gross_income);
+console.log(movie.results[i].description);
+*/
 
 
-
-
-let bestRatedMovieUrl = d["results"][0]["url"]
---> movies/categ: 
+//****************** CATEGORIES URLS ************************ 
+/*
 * Best movie: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score
 * comedy: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=comedy
 * sci-fi: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=sci-fi
 * biography: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=Biography
 * animation: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=Animation
-
 */
 
 
 // ****** Cateogies *************
 
 // Create Categories promise
-const promiseGetCategories = new Promise((resolve, reject) => {
+
+/*const promiseGetCategories = new Promise((resolve, reject) => {
     if (typeof CATEGORIES !== 'undefined') {
         resolve(CATEGORIES);
     } else {
         reject('Accès aux catégories impossible!')
     }
 });
-
+*/
 // Get Categories promise
+/*
 promiseGetCategories
-    .then( c => { /* 'c' for categorie */
+    .then( c => { // 'c' for categorie
         console.log(c);
-        /*console.log(c[0].title);
+        console.log(c[0].title);
         document.querySelector("#categ").innerHTML = c[0].title;
         let list = '<ul>';
         for (let cat of c) {
             list += `<li>${cat.title}</li>`;
         }
         list += '</ul>';
-        document.querySelector("#cat").innerHTML = list;*/
+        document.querySelector("#cat").innerHTML = list;
         return c.length;
     })
     .then( numberOfMovies => { 
         console.log(`Il y a ${numberOfMovies} catégories`);
     })
-    .catch(e => console.log(e)); /* 'e' for error */
+    .catch(e => console.log(e)); //'e' for error 
+*/
 
 
 // ****** Movies *************
-
+/*
 // Create movies promise
 const promiseGetMovies = new Promise((resolve, reject) => {
     if (typeof MOVIES !== 'undefined') {
@@ -262,27 +300,28 @@ const promiseGetMovies = new Promise((resolve, reject) => {
 });
 
 // Get movies promise
+/*
 promiseGetMovies
-    .then( m => { /* 'm' for movie */
+    .then( m => { //'m' for movie
         console.log(m);
-        /*console.log(m[0].title);
+        console.log(m[0].title);
         document.querySelector("#categ").innerHTML = m[0].title;
         let list = '<ul>';
         for (let mov of m) {
             list += `<li>${mov.title}</li>`;
         }
         list += '</ul>';
-        document.querySelector("#categ").innerHTML = list;*/
+        document.querySelector("#categ").innerHTML = list;
         return m.length;
     })
     .then( numberOfMovies => { 
         console.log(`Il y a ${numberOfMovies} films`);
     })
-    .catch(e => console.log(e)); /* 'e' for error */
-
+    .catch(e => console.log(e)); //'e' for error 
+*/
 
 // ************* FETCH URLS ****************
-
+/*
 // Base url
 let url = 'http://localhost:8000/api/v1';
 
@@ -301,11 +340,4 @@ let bestRatedUrlSciFi = "/titles/?year=&min_year=&max_year=&imdb_score=8.1&imdb_
 // the very best movie(s) 3 rated at 9.4
 let veryBestMovieUrl = "/titles/?year=&min_year=&max_year=&imdb_score=9.4&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
 
-// Fetching time!
-fetch(url+bestRatedUrlAction)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        console.log(data)
-});
+*/
