@@ -47,6 +47,7 @@ window.addEventListener('keydown', function(e) {
     }
 });
 
+/*
 // ********** prev & next buttons **********
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -76,7 +77,7 @@ function showSlides(n) {
 }
 
 
-// /* *********** Modal ********* *//
+// *********** Modal ********* 
 // Get the modal
 /*var modal = document.getElementById("myModal");
 
@@ -110,26 +111,31 @@ const coreApiUrl = "http://127.0.0.1:8000/api/v1/titles/?";
 const theBestMovieUrlFilter = "sort_by=-imdb_score";
 
 // 1. Fetch the url for the best rated movies regardless of genre,
-// then, get the  url of the best rated movi; therafter, fetch for requested data:
-/*
+// then, get the  url of the best rated movie; therafter, fetch for the requested data:
+
 const urlBestMovie = coreApiUrl + theBestMovieUrlFilter;
 
-fetch(urlBestMovie)
-  .then(data => data.json())
-  .then(d => {
-    fetch(d.results[0].url)
+// To display the best movie data
+function goFetchBestMovie() {
+    fetch(urlBestMovie)
       .then(data => data.json())
-      .then(d => veryBestMovie(d))
+      .then(d => {
+        fetch(d.results[0].url)
+          .then(data => data.json())
+          .then(d => veryBestMovie(d))
+          .catch(err => console.log(err.message));
+       })
       .catch(err => console.log(err.message));
-  })
-  .catch(err => console.log(err.message));
-
-function veryBestMovie(movie) {
-    console.log(movie.title);
-    console.log(movie.description);
-    console.log(movie.image_url);
+    function veryBestMovie(movie) {
+        document.querySelector("#imdbScoreBestMovie").innerHTML = 'Note: ' + movie.imdb_score;
+        document.querySelector("#titleBestMovie").innerHTML = movie.title;
+        document.querySelector("#shortDescMovie").innerHTML = movie.description;
+        document.getElementById("divImgBestMovie").src = movie.image_url;
+        document.getElementById("divImgBestMovie").alt = movie.title;
+    }
 }
-*/
+
+goFetchBestMovie();
 
 
 
@@ -138,6 +144,7 @@ function veryBestMovie(movie) {
 
 
 // $$$$$$$ it does work!!! ******
+
 /*
 
 const coreApiUrl = "http://127.0.0.1:8000/api/v1/titles/?";
@@ -151,7 +158,7 @@ let filterPage2 = 'page=2';
 const url7BestMoviesP1 = coreApiUrl + filter7BestMovies;
 const url7BestMoviesP2 = coreApiUrl + filterPage2 + '&' + filter7BestMovies;
 
-// function to fetch data from api
+
 function goFetch() {
     
     for(let i=0; i<5; i++) {
@@ -181,17 +188,17 @@ function goFetch() {
     }, 1000);
 
     function veryBestMovie(movie) {
-        console.log(movie.title);
-        console.log(movie.id);
+        console.log(movie.image_url);
+        //console.log(movie.id);
         //console.log(movie.image_url);
+        //document.getElementById("imgG2"+[i]).src = movie.image_url;
     }
 }
 
 goFetch();
 
-
-
 // $$$$$$$ end Trial *******
+
 
 
 // 4. Fetch data for each individual movie for modal display:

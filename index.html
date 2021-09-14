@@ -37,23 +37,21 @@
             </div>
         </div>
 
-        <!-- Best rated movie regardless category -->
+        <!-- The Best rated movie regardless category -->
         <div class="containerBestMovie">
-            <div class="" id="titleBestMovie"> <!-- get: "title" -->
-                <h2></h2>
-            </div>
-            <div class="" id="buttonBestMovie">
-                <button></button>
-            </div>
-            <div class="" id="shortDescMovie"> <!-- get: "description" -->
-                <p></p>
-            </div>
-            <div class="" id="divImgBestMovie">
-                <img src="" alt="theBestMovie"> <!-- get: "image_url" -->
-            </div>
+            <p id="imdbScoreBestMovie"></hp> <!-- get: "imdb_score" --> 
+            <h2 id="titleBestMovie"></h2> <!-- get: "title" --> 
+            <button id="buttonBestMovie">Play</button>
+            <p id="shortDescMovie"></p>  <!-- get: "description" -->
+            <img id="divImgBestMovie" src="" alt="theBestMovie"> <!-- get: "image_url" -->
         </div>
 
-        <!-- Best rated movies regardless category -->
+        <!--
+        document.getElementById("divImgBestMovie").src = movie.image_url;
+        document.getElementById("divImgBestMovie").src = 'https://m.media-amazon.com/images/M/MV5BNDEyYTA5OWEtYjNiYS00MGZlLThjYzEtMTc1Zjk2NDRmZmYxXkEyXkFqcGdeQXVyNzIwNTQyMw@@._V1_UY268_CR1,0,182,268_AL_.jpg';
+        -->
+
+        <!-- 7 Best rated movies regardless category -->
         <h3 id="categ">Films les mieux notés</h3>
         <div class="container">
             <div class="row">
@@ -82,14 +80,14 @@
                 <div class="" id="prev">
                     <span class="nav-arrow">◄</span>
                 </div>
-                <div class="slider" id="gallery2">
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BOWE4ZDdhNmMtNzE5ZC00NzExLTlhNGMtY2ZhYjYzODEzODA1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UY268_CR4,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BYjBmYTQ1NjItZWU5MS00YjI0LTg2OTYtYmFkN2JkMmNiNWVkXkEyXkFqcGdeQXVyMTMxMTY0OTQ@._V1_UY268_CR7,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BZDg5ZTg4NWYtNDAyYS00ZDc0LWFiNWEtNWI5OGFiYmVhMmQzXkEyXkFqcGdeQXVyMTM3OTE2Mzg@._V1_UY268_CR3,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BN2I5NzUzYjQtZDRkNC00Yzc4LTk3ODItY2UzYWQwOWNiYjhhXkEyXkFqcGdeQXVyMjkxNzQ1NDI@._V1_UY268_CR11,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BNzRlZGVhZDEtY2U4MC00NjBmLWE1NTItZGY5YzFkOTllMWYxXkEyXkFqcGdeQXVyMTE5MDQwMjUw._V1_UY268_CR147,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BNDJiZGIyYjMtYjZkMy00NzE5LTljMDAtNjc3YmNlNjM3MDIzXkEyXkFqcGdeQXVyOTk3NTc2MzE@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
+                <div class="sliderG2" id="gallery2">
+                    <img id="imgG20" src="" alt="">
+                    <img id="imgG21" src="" alt="">
+                    <img id="imgG22" src="" alt="">
+                    <img id="imgG23" src="" alt="">
+                    <img id="imgG24" src="" alt="">
+                    <img id="imgG25" src="" alt="">
+                    <img id="imgG26" src="" alt="">
                 </div>
                 <div class="" id="next">
                     <span class="nav-arrow">►</i></span>
