@@ -1,110 +1,3 @@
-const images = document.querySelectorAll('#gallery1 img');
-let imgActive = 0;
-
-// Hide the 3 last pictures
-for (let i = 4; i < images.length; i++) {
-    images[i].classList.add('hidden');
-}
-
-//Click on the 'next1' button
-document.querySelector('#next').addEventListener('click', function() {
-    next1();
-});
-
-//  Function allows go to next1 movies
-const next1 = function () {
-    for (let imgActive = 0; imgActive < 3; imgActive++) {
-        images[imgActive].classList.add('hidden');
-    }
-    for (let imgActive = 3; imgActive < images.length; imgActive++) {
-        images[imgActive].classList.remove('hidden');
-    }
-};
-
-
-//Click on the 'prev1' button
-document.querySelector('#prev').addEventListener('click', function() {
-    prev1();
-});
-
-//  Function allows to go back to previous movies
-const prev1 = function () {
-    for (let imgActive = 0; imgActive < 4; imgActive++) {
-        images[imgActive].classList.remove('hidden');
-    }
-    for (let imgActive = 4; imgActive < images.length; imgActive++) {
-        images[imgActive].classList.add('hidden');
-    }
-};
-
-// Keyboard click management
-window.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowRight'){
-        next1();
-    }
-    if (e.key === 'ArrowLeft'){
-        prev1();
-    }
-});
-
-/*
-// ********** prev & next buttons **********
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-
-
-// *********** Modal ********* 
-// Get the modal
-/*var modal = document.getElementById("myModal");
-
-// Get the img that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the img, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-*/
-
 // *********** FETCH FOR THE VERY BEST MOVIE ********************
 // A. To get the best movie data regardless its category:
 const coreApiUrl = "http://127.0.0.1:8000/api/v1/titles/?";
@@ -127,16 +20,55 @@ function goFetchBestMovie() {
        })
       .catch(err => console.log(err.message));
     function veryBestMovie(movie) {
-        document.querySelector("#imdbScoreBestMovie").innerHTML = 'Note: ' + movie.imdb_score;
-        document.querySelector("#titleBestMovie").innerHTML = movie.title;
-        document.querySelector("#shortDescMovie").innerHTML = movie.description;
-        document.getElementById("divImgBestMovie").src = movie.image_url;
-        document.getElementById("divImgBestMovie").alt = movie.title;
+        document.querySelector("#bestRatedMovieImdbScore1").innerHTML = 'Note: ' + movie.imdb_score;
+        document.querySelector("#bestRatedMovieImdbScore2").innerHTML = '<em style="color: #0bff09;">Note: </em>' + movie.imdb_score;
+        document.querySelector("#bestRatedMovieTitle1").innerHTML = movie.title;
+        document.querySelector("#bestRatedMovieTitle2").innerHTML = movie.title;
+        document.querySelector("#bestRatedMovieGenres").innerHTML = '<em style="color: #0bff09;">Genre: </em>' + movie.genres;
+        document.querySelector("#bestRatedMovieDatePublished").innerHTML = '<em style="color: #0bff09;">Date de sortie: </em>' + movie.date_published;
+        document.querySelector("#bestRatedMovieRated").innerHTML = '<em style="color: #0bff09;">Rated: </em>' + movie.rated;
+        document.querySelector("#bestRatedMovieDirectors").innerHTML = '<em style="color: #0bff09;">Réalisateur: </em>' + movie.directors;
+        document.querySelector("#bestRatedMovieActors").innerHTML = '<em style="color: #0bff09;">Acteurs: </em>' + movie.actors;
+        document.querySelector("#bestRatedMovieDuration").innerHTML = '<em style="color: #0bff09;">Durée: </em>' + movie.duration + 'min';
+        document.querySelector("#bestRatedMovieCountries").innerHTML = '<em style="color: #0bff09;">Pays: </em>' + movie.countries;
+        document.querySelector("#bestRatedMovieGlobalGrossIncome").innerHTML = '<em style="color: #0bff09;">Box Office: </em>' + movie.worldwide_gross_income;
+        document.querySelector("#bestRatedMovieShortDesc2").innerHTML = '<em style="color: #0bff09;">Résumé: </em>' + movie.description;
+        document.querySelector("#bestRatedMovieShortDesc1").innerHTML = 'Résumé: ' + movie.description;
+        document.getElementById("bestRatedMovieImg1").src = movie.image_url;
+        document.getElementById("bestRatedMovieImg2").src = movie.image_url;
+        document.getElementById("bestRatedMovieImg1").alt = movie.title;
+        document.getElementById("bestRatedMovieImg2").alt = movie.title;
     }
 }
-
 goFetchBestMovie();
 
+
+// *********** MODAL FOR THE BEST RATED MOVIE ********* 
+// Get the modal
+let modal = document.getElementById("myModal");
+
+// Get the img that opens the modal
+let btn = document.getElementById("bestRatedMovieButton");
+
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the img, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 
 // *********** FETCH FOR THE 7 BEST MOVIES ***********************
@@ -144,11 +76,6 @@ goFetchBestMovie();
 
 
 // $$$$$$$ it does work!!! ******
-
-/*
-
-const coreApiUrl = "http://127.0.0.1:8000/api/v1/titles/?";
-const theBestMovieUrlFilter = "sort_by=-imdb_score";
 
 let filter7BestMovies = 'sort_by=-imdb_score';
 let filterPage2 = 'page=2';
@@ -159,7 +86,7 @@ const url7BestMoviesP1 = coreApiUrl + filter7BestMovies;
 const url7BestMoviesP2 = coreApiUrl + filterPage2 + '&' + filter7BestMovies;
 
 
-function goFetch() {
+function goFetchSevenBestRatedMovies() {
     
     for(let i=0; i<5; i++) {
       fetch(url7BestMoviesP1)
@@ -187,19 +114,18 @@ function goFetch() {
         }
     }, 1000);
 
+    let a = 0;
     function veryBestMovie(movie) {
-        console.log(movie.image_url);
-        //console.log(movie.id);
-        //console.log(movie.image_url);
-        //document.getElementById("imgG2"+[i]).src = movie.image_url;
+        document.querySelector("#img"+`${a}`).src = movie.image_url;
+        a++;
     }
 }
 
-goFetch();
+goFetchSevenBestRatedMovies();
 
 // $$$$$$$ end Trial *******
 
-
+/*
 
 // 4. Fetch data for each individual movie for modal display:
 // First the url for each movie, then fetch for data:
@@ -348,3 +274,85 @@ let bestRatedUrlSciFi = "/titles/?year=&min_year=&max_year=&imdb_score=8.1&imdb_
 let veryBestMovieUrl = "/titles/?year=&min_year=&max_year=&imdb_score=9.4&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
 
 */
+
+/* ***************** PREV + NEXT BUTTONS: code 1 - Not fully functional !!! ***************
+
+const images = document.querySelectorAll('#gallery1 img');
+let imgActive = 0;
+
+// Hide the 3 last pictures
+for (let i = 4; i < images.length; i++) {
+    images[i].classList.add('hidden');
+}
+
+//Click on the 'next1' button
+document.querySelector('#next').addEventListener('click', function() {
+    next1();
+});
+
+//  Function allows go to next1 movies
+const next1 = function () {
+    for (let imgActive = 0; imgActive < 3; imgActive++) {
+        images[imgActive].classList.add('hidden');
+    }
+    for (let imgActive = 3; imgActive < images.length; imgActive++) {
+        images[imgActive].classList.remove('hidden');
+    }
+};
+
+
+//Click on the 'prev1' button
+document.querySelector('#prev').addEventListener('click', function() {
+    prev1();
+});
+
+//  Function allows to go back to previous movies
+const prev1 = function () {
+    for (let imgActive = 0; imgActive < 4; imgActive++) {
+        images[imgActive].classList.remove('hidden');
+    }
+    for (let imgActive = 4; imgActive < images.length; imgActive++) {
+        images[imgActive].classList.add('hidden');
+    }
+};
+
+// Keyboard click management
+window.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight'){
+        next1();
+    }
+    if (e.key === 'ArrowLeft'){
+        prev1();
+    }
+});
+*/
+
+/* ***************** PREV + NEXT BUTTONS: code 2 -- works like a charm :) ***************
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+ */ 
+

@@ -20,15 +20,15 @@
         <link 
             rel="stylesheet" 
             href="css/styles.css">
-
     </head>
     
     <body>
         
-        <div class="header container" style="background-color:#ececec;">
+        <!-- Page Header: Logo @ nav links -->
+        <div class="header container">
             <div class="row">
                 <div class="col-6">
-                    <h1>justStreamIt</h1>
+                    <img id="logo" src="img/logo.png" alt="logo">
                 </div>
                 <div class="col-6">
                     <a>Accueil</a>
@@ -38,132 +38,168 @@
         </div>
 
         <!-- The Best rated movie regardless category -->
-        <div class="containerBestMovie">
-            <p id="imdbScoreBestMovie"></hp> <!-- get: "imdb_score" --> 
-            <h2 id="titleBestMovie"></h2> <!-- get: "title" --> 
-            <button id="buttonBestMovie">Play</button>
-            <p id="shortDescMovie"></p>  <!-- get: "description" -->
-            <img id="divImgBestMovie" src="" alt="theBestMovie"> <!-- get: "image_url" -->
-        </div>
+        <h2 id="bestRatedMovieHeader">Meilleur film</h2>
+        <div class="bestRatedMovieContainer">
+            <p id="bestRatedMovieImdbScore1"></p> <!-- get: "imdb_score" --> 
+            <h1 id="bestRatedMovieTitle1"></h1> <!-- get: "title" --> 
+            
+            <button class="btn" id="bestRatedMovieButton">Info</button>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h2 id="bestRatedMovieTitle2"></h1> <!-- get: "title" -->
+                                    <hr>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    
+                                    <img id="bestRatedMovieImg2" src="" alt=""> <!-- get: "image_url" -->
+                                </td>
+                                <td>
+                                    <p id="bestRatedMovieImdbScore2"></p> <!-- get: "imdb_score" -->
+                                    <p id="bestRatedMovieGenres"></p>  <!-- get: "genres" -->
+                                    <p id="bestRatedMovieDatePublished"></p>  <!-- get: "date_published" -->
+                                    <p id="bestRatedMovieRated"></p>  <!-- get: "rated" -->
+                                    <p id="bestRatedMovieDuration"></p>  <!-- get: "duration" -->
+                                    <p id="bestRatedMovieDirectors"></p>  <!-- get: "directors" -->
+                                    <p id="bestRatedMovieActors"></p>  <!-- get: "actors" -->
+                                    <p id="bestRatedMovieCountries"></p>  <!-- get: "countries" -->
+                                    <p id="bestRatedMovieGlobalGrossIncome"></p>  <!-- get: "worldwide_gross_income" -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p id="bestRatedMovieShortDesc2"></p>  <!-- get: "description" -->
+                </div>
+            </div>
 
-        <!--
-        document.getElementById("divImgBestMovie").src = movie.image_url;
-        document.getElementById("divImgBestMovie").src = 'https://m.media-amazon.com/images/M/MV5BNDEyYTA5OWEtYjNiYS00MGZlLThjYzEtMTc1Zjk2NDRmZmYxXkEyXkFqcGdeQXVyNzIwNTQyMw@@._V1_UY268_CR1,0,182,268_AL_.jpg';
-        -->
+            <p id="bestRatedMovieShortDesc1"></p>  <!-- get: "description" -->
+            <img id="bestRatedMovieImg1" src="" alt=""> <!-- get: "image_url" -->
+        </div>
 
         <!-- 7 Best rated movies regardless category -->
-        <h3 id="categ">Films les mieux notés</h3>
-        <div class="container">
-            <div class="row">
-                <div class="" id="prev">
+        <h2 id="sevenBestRatedMoviesHeader">Films les mieux notés</h2>
+        <div class="sevenBestRatedMoviesContainer">
+            <div class="sevenBestRatedMoviesrow">
+                <div class="" id="sevenBestRatedMoviesPrev">
                     <span class="nav-arrow">◄</span>
                 </div>
-                <div class="slider" id="gallery1">
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BNDEyYTA5OWEtYjNiYS00MGZlLThjYzEtMTc1Zjk2NDRmZmYxXkEyXkFqcGdeQXVyNzIwNTQyMw@@._V1_UY268_CR1,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BZGNiNjVhMTUtYTY0MC00MjQ4LTlhNjAtMmY3ODljMjc5YmJhXkEyXkFqcGdeQXVyMzQwNTU0OTQ@._V1_UY268_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BOWVmOWRmMWMtMDc2OC00NGM2LTllOTAtMmY5NjVhM2YzYjVlXkEyXkFqcGdeQXVyOTc2MTgwNjY@._V1_UY268_CR3,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BNjZhYWVhNjktNDRmNS00NGUyLThjZTgtYmU4NmQzYzIyZTk4XkEyXkFqcGdeQXVyMjkxNzQ1NDI@._V1_UY268_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BZDMwODgwOGItNTJjNS00NDk2LTlkYzEtYzRjOTU5YTBlZGY5XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_UY268_CR9,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BNjFjNDQyYzYtZjI2NC00NmMwLTg1NjgtNTMxMWJjYTYxZjQ3XkEyXkFqcGdeQXVyMTA5MzgzNDUz._V1_UY268_CR1,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BMTZjZjM3NTQtOTFmOS00ZGI3LWI2MGQtMGE3MWNlZTE2OWM3XkEyXkFqcGdeQXVyMTExNzA5NzE4._V1_UY268_CR9,0,182,268_AL_.jpg" alt=""></div>
+                <div class="sevenBestRatedMoviesSlider" id="sevenBestRatedMoviesGallery">
+                    <img id="img0" src="" alt="">
+                    <img id="img1" src="" alt="">
+                    <img id="img2" src="" alt="">
+                    <img id="img3" src="" alt="">
+                    <img id="img4" src="" alt="">
+                    <img id="img5" src="" alt="">
+                    <img id="img6" src="" alt="">
                 </div>
-                <div class="" id="next">
+                <div class="" id="sevenBestRatedMoviesNext">
                     <span class="nav-arrow">►</i></span>
                 </div>
             </div>
         </div>
 
-        <!-- Best rated action movies  -->
-        <h3 id="categ">Les meilleurs films d'action</h3>
-        <div class="container">
-            <div class="row">
-                <div class="" id="prev">
+        <!-- 7 Best rated Action movies -->
+        <h2 id="sevenBestRatedActionMoviesHeader">Meilleurs films d'action</h2>
+        <div class="sevenBestRatedActionMoviesContainer">
+            <div class="sevenBestRatedActionMoviesRow">
+                <div class="" id="sevenBestRatedActionMoviesPrev">
                     <span class="nav-arrow">◄</span>
                 </div>
-                <div class="sliderG2" id="gallery2">
-                    <img id="imgG20" src="" alt="">
-                    <img id="imgG21" src="" alt="">
-                    <img id="imgG22" src="" alt="">
-                    <img id="imgG23" src="" alt="">
-                    <img id="imgG24" src="" alt="">
-                    <img id="imgG25" src="" alt="">
-                    <img id="imgG26" src="" alt="">
+                <div class="sevenBestRatedActionMoviesSlider" id="sevenBestRatedActionMoviesGallery">
+                    <img id="sevenBestRatedActionMoviesImg1" src="" alt="">
+                    <img id="sevenBestRatedActionMoviesImg2" src="" alt="">
+                    <img id="sevenBestRatedActionMoviesImg3" src="" alt="">
+                    <img id="sevenBestRatedActionMoviesImg4" src="" alt="">
+                    <img id="sevenBestRatedActionMoviesImg5" src="" alt="">
+                    <img id="sevenBestRatedActionMoviesImg6" src="" alt="">
+                    <img id="sevenBestRatedActionMoviesImg7" src="" alt="">
                 </div>
-                <div class="" id="next">
-                    <span class="nav-arrow">►</i></span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Best rated adventure movies -->
-        <h3 id="categ">Les meilleurs films d'aventure</h3>
-        <div class="container">
-            <div class="row">
-                <div class="" id="prev">
-                    <span class="nav-arrow">◄</span>
-                </div>
-                <div class="slider" id="gallery3">
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BOTViNjVkMDAtYTZmNi00MDE3LWI2YjEtOTNiNTY1ZDhhMDI2XkEyXkFqcGdeQXVyNjQ1MDcxNzM@._V1_UY268_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BYjMzMWEwNmUtMDM5Ny00YTI5LWIxYzAtMzMzZTcyMDc3MTIzXkEyXkFqcGdeQXVyMTEwNTQxMjQ@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BMjQzZjFkZTEtZWVmMC00ZjViLTk2NDgtOGM5MjVkZjc5OWM0XkEyXkFqcGdeQXVyMzU0NzkwMDg@._V1_UY268_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BNmM1NTcyNTItNTI2Ny00ZmE4LWIzMTUtODA3Nzg2NTg2N2YxXkEyXkFqcGdeQXVyMzU0NzkwMDg@._V1_UY268_CR3,0,182,268_AL_.jpg" alt=""></div>
-                </div>
-                <div class="" id="next">
+                <div class="" id="sevenBestRatedActionMoviesNext">
                     <span class="nav-arrow">►</i></span>
                 </div>
             </div>
         </div>
 
-        <!-- Best rated animation movies -->
-        <h3 id="categ">Les meilleurs films d'animation</h3>
-        <div class="container">
-            <div class="row">
-                <div class="" id="prev">
+        <!-- 7 Best rated Adventure movies -->
+        <h2 id="sevenBestRatedAdventureMoviesHeader">Meilleurs films d'aventure</h2>
+        <div class="sevenBestRatedAdventureMoviesContainer">
+            <div class="sevenBestRatedAdventureMoviesRow">
+                <div class="" id="sevenBestRatedAdventureMoviesPrev">
                     <span class="nav-arrow">◄</span>
                 </div>
-                <div class="slider" id="gallery4">
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BYTNmZTBjYTMtMWQ0ZS00NmNhLTk4ZGQtOGM5YmJhNTQzNTIxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjIzMDAwOTc@._V1_UY268_CR2,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_UY268_CR3,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BZDhmMTNkZjYtMjFhZi00OWY1LWEwMDAtNGYxMDk5ZjIxMjkyXkEyXkFqcGdeQXVyNjc3OTE4Nzk@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BM2Y0YjBiNjAtZjMwZS00ZGY4LWE0MWItMGE5MWI3ZWRmODAyXkEyXkFqcGdeQXVyMjM5NDU5ODY@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BY2YwMDBiMjQtMGMzYy00NjM2LTk5ZDAtNzEyMDk0YWY3ZDA1XkEyXkFqcGdeQXVyNDEwMDY4Njc@._V1_UY268_CR2,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BMjA0ODIwMDU5Nl5BMl5BanBnXkFtZTYwOTgzOTI5._V1_UY268_CR6,0,182,268_AL_.jpg" alt=""></div>
+                <div class="sevenBestRatedAdventureMoviesSlider" id="sevenBestRatedAdventureMoviesGallery">
+                    <img id="sevenBestRatedAdventureMoviesImg1" src="" alt="">
+                    <img id="sevenBestRatedAdventureMoviesImg2" src="" alt="">
+                    <img id="sevenBestRatedAdventureMoviesImg3" src="" alt="">
+                    <img id="sevenBestRatedAdventureMoviesImg4" src="" alt="">
+                    <img id="sevenBestRatedAdventureMoviesImg5" src="" alt="">
+                    <img id="sevenBestRatedAdventureMoviesImg6" src="" alt="">
+                    <img id="sevenBestRatedAdventureMoviesImg7" src="" alt="">
                 </div>
-                <div class="" id="next">
+                <div class="" id="sevenBestRatedAdventureMoviesNext">
                     <span class="nav-arrow">►</i></span>
                 </div>
             </div>
         </div>
 
-        <!-- Best rated sci-fi movies -->
-        <h3 id="categ">Les meilleurs films de Sci-Fi</h3>
-        <div class="container">
-            <div class="row">
-                <div class="" id="prev">
+        <!-- 7 Best rated Animation movies -->
+        <h2 id="sevenBestRatedAnimationMoviesHeader">Meilleurs films d'animation</h2>
+        <div class="sevenBestRatedAnimationMoviesContainer">
+            <div class="sevenBestRatedAnimationMoviesRow">
+                <div class="" id="sevenBestRatedAnimationMoviesPrev">
                     <span class="nav-arrow">◄</span>
                 </div>
-                <div class="slider" id="gallery">
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BNjhiNmY1YTAtZWRjNS00ZjE2LTk4ODctM2Y4NTllNTM1Mzg1XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BZmY4Yjc0OWQtZDRhMy00ODc2LWI2NGYtMWFlODYyN2VlNDQyXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY268_CR4,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BNGViZWZmM2EtNGYzZi00ZDAyLTk3ODMtNzIyZTBjN2Y1NmM1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BMTQxYzRiNjEtYjcwYS00ZjcyLWI1OGMtY2ZkYjllYmI0YjEwXkEyXkFqcGdeQXVyNjg3MTIwODI@._V1_UY268_CR4,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
-                    <div><img src="https://m.media-amazon.com/images/M/MV5BMDIzODcyY2EtMmY2MC00ZWVlLTgwMzAtMjQwOWUyNmJjNTYyXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_UX182_CR0,0,182,268_AL_.jpg" alt=""></div>
+                <div class="sevenBestRatedAnimationMoviesSlider" id="sevenBestRatedAnimationMoviesGallery">
+                    <img id="sevenBestRatedAnimationMoviesImg1" src="" alt="">
+                    <img id="sevenBestRatedAnimationMoviesImg2" src="" alt="">
+                    <img id="sevenBestRatedAnimationMoviesImg3" src="" alt="">
+                    <img id="sevenBestRatedAnimationMoviesImg4" src="" alt="">
+                    <img id="sevenBestRatedAnimationMoviesImg5" src="" alt="">
+                    <img id="sevenBestRatedAnimationMoviesImg6" src="" alt="">
+                    <img id="sevenBestRatedAnimationMoviesImg7" src="" alt="">
                 </div>
-                <div class="" id="next">
+                <div class="" id="sevenBestRatedAnimationMoviesNext">
                     <span class="nav-arrow">►</i></span>
                 </div>
             </div>
         </div>
 
-        <!-- App scripts -->
+        <!-- 7 Best rated Sci-Fi movies -->
+        <h2 id="sevenBestRatedSciFiMoviesHeader">Meilleurs films de science fiction</h2>
+        <div class="sevenBestRatedSciFiMoviesContainer">
+            <div class="sevenBestRatedSciFiMoviesRow">
+                <div class="" id="sevenBestRatedSciFiMoviesPrev">
+                    <span class="nav-arrow">◄</span>
+                </div>
+                <div class="sevenBestRatedSciFiMoviesSlider" id="sevenBestRatedSciFiMoviesGallery">
+                    <img id="sevenBestRatedSciFiMoviesImg1" src="" alt="">
+                    <img id="sevenBestRatedSciFiMoviesImg2" src="" alt="">
+                    <img id="sevenBestRatedSciFiMoviesImg3" src="" alt="">
+                    <img id="sevenBestRatedSciFiMoviesImg4" src="" alt="">
+                    <img id="sevenBestRatedSciFiMoviesImg5" src="" alt="">
+                    <img id="sevenBestRatedSciFiMoviesImg6" src="" alt="">
+                    <img id="sevenBestRatedSciFiMoviesImg7" src="" alt="">
+                </div>
+                <div class="" id="sevenBestRatedSciFiMoviesNext">
+                    <span class="nav-arrow">►</i></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- App scripts
         <script src="js/categories.js"></script>
         <script src="js/movies.js"></script>
+        -->
         <script src="js/app.js"></script>
         
     </body>
