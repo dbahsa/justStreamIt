@@ -40,10 +40,19 @@
         <!-- The Best rated movie regardless category -->
         <h2 id="bestRatedMovieHeader">Meilleur film</h2>
         <div class="bestRatedMovieContainer">
-            <p id="bestRatedMovieImdbScore1"></p> <!-- get: "imdb_score" --> 
-            <h1 id="bestRatedMovieTitle1"></h1> <!-- get: "title" --> 
-            
-            <button class="btn" id="bestRatedMovieButton">Info</button>
+            <table>
+                <tr>
+                    <td>
+                        <p id="bestRatedMovieImdbScore1"></p> <!-- get: "imdb_score" --> 
+                        <h1 id="bestRatedMovieTitle1"></h1> <!-- get: "title" --> 
+                        <button class="btn glow-on-hover" id="bestRatedMovieButton">Info</button>
+                        <p id="bestRatedMovieShortDesc1" ></p>  <!-- get: "description" -->
+                    </td>
+                    <td>
+                        <img id="bestRatedMovieImg1" src="" alt=""> <!-- get: "image_url" -->
+                    </td>
+                </tr>
+            </table>
             <!-- The Modal -->
             <div id="myModal" class="modal">
                 <!-- Modal content -->
@@ -81,9 +90,6 @@
                     <p id="bestRatedMovieShortDesc2"></p>  <!-- get: "description" -->
                 </div>
             </div>
-
-            <p id="bestRatedMovieShortDesc1"></p>  <!-- get: "description" -->
-            <img id="bestRatedMovieImg1" src="" alt=""> <!-- get: "image_url" -->
         </div>
 
         <!-- 7 Best rated movies regardless category -->

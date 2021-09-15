@@ -8,7 +8,7 @@ const theBestMovieUrlFilter = "sort_by=-imdb_score";
 
 const urlBestMovie = coreApiUrl + theBestMovieUrlFilter;
 
-// To display the best movie data
+// To display the best movie data in a modal
 function goFetchBestMovie() {
     fetch(urlBestMovie)
       .then(data => data.json())
@@ -48,7 +48,7 @@ goFetchBestMovie();
 let modal = document.getElementById("myModal");
 
 // Get the img that opens the modal
-let btn = document.getElementById("bestRatedMovieButton");
+let btn = document.getElementById("bestRatedMovieButton");  // this is where my img will be needed as a btn in order to come up with a modal containing data for each one of 7 best someting movie!
 
 // Get the <span> element that closes the modal
 let span = document.getElementsByClassName("close")[0];

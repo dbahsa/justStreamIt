@@ -5,11 +5,22 @@ html {
 }
 
 .bestRatedMovieContainer {
-    background-color: #f0ffff30;
+    background-color: #f0ffff6e;
     padding: 1rem;
     margin: 1rem 5%;
 }
 
+.sevenBestRatedMoviesContainer,
+.sevenBestRatedActionMoviesContainer,
+.sevenBestRatedAdventureMoviesContainer,
+.sevenBestRatedAnimationMoviesContainer,
+.sevenBestRatedSciFiMoviesContainer {
+    background-color: #f0ffff1c;
+    padding: 1rem;
+    margin: 1rem 5%;
+}
+
+/*
 .btn {
 	box-shadow:inset 0px 1px 0px 0px #f5978e;
 	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
@@ -30,7 +41,7 @@ html {
 	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
 	background-color:#c62d1f;
 }
-
+*/
 
 .container {
     text-align: center;
@@ -178,10 +189,110 @@ text-decoration: none;
 cursor: pointer;
 }
 
-#logo {
-    width: 30%;
+/* *** */
+
+div.header.container {
+    margin-bottom: 4em;
+}
+
+img#logo {
+    /* width: 50%; */
+    float: left;
+    padding-left: 40px;
 }
 
 a {
     margin: 20px;
+}
+
+h2#bestRatedMovieHeader,
+h2#sevenBestRatedMoviesHeader,
+h2#sevenBestRatedActionMoviesHeader,
+h2#sevenBestRatedAdventureMoviesHeader,
+h2#sevenBestRatedAnimationMoviesHeader,
+h2#sevenBestRatedSciFiMoviesHeader {
+    margin: 4em 5% 1rem;
+}
+
+#bestRatedMovieShortDesc1 p {
+    font-size: 25px;
+    margin-bottom: 0px;
+    padding-right: 20px;
+}
+
+h1#bestRatedMovieTitle1 {
+    font-size: 5em;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+p#bestRatedMovieShortDesc1 {
+    font-size: 25px;
+    padding-right: 15px;
+    margin-bottom: 0;
+}
+
+/* Best Movie Button Effect */
+
+.glow-on-hover {
+    width: 200px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #5f0101;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*background: #0000005e;*/
+	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+	background-color:#f24537;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
