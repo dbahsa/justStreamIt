@@ -43,49 +43,45 @@ function goFetchBestMovie() {
 goFetchBestMovie();
 
 
-// *********** MODAL FOR THE BEST RATED MOVIE ********* 
-// Get the modal
-let modal = document.getElementById("myModal");
+/* *********** MODAL FOR THE BEST RATED MOVIE ********* */
 
-// Get the img that opens the modal
-let btn = document.getElementById("bestRatedMovieButton");  // this is where my img will be needed as a btn in order to come up with a modal containing data for each one of 7 best someting movie!
-
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the img, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
+function bestRatedMovieModal() {
+    // Get the modal
+    let modal = document.getElementById("bestRatedMovieModal");
+    // Get the img that opens the modal
+    let btn = document.getElementById("bestRatedMovieButton");
+    // Get the <span> element that closes the modal
+    let span = document.getElementsByClassName("close")[0];
+    // When the user clicks on the img, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+bestRatedMovieModal();
 
 
-// *********** FETCH FOR THE 7 BEST MOVIES ***********************
-// B. To get the 7 best movies data regardless their category:
+/* *********** FETCH FOR THE 7 BEST MOVIES ********************** */
 
-
-// $$$$$$$ it does work!!! ******
-
+// Get the 7 best movies data regardless their category:
 let filter7BestMovies = 'sort_by=-imdb_score';
 let filterPage2 = 'page=2';
 
-// 1. Fetch the url for the 7 best rated movies regardless their genre,
+// Fetch the url for the 7 best rated movies regardless their genre,
 // there are on 2 pages:
 const url7BestMoviesP1 = coreApiUrl + filter7BestMovies;
 const url7BestMoviesP2 = coreApiUrl + filterPage2 + '&' + filter7BestMovies;
 
-
+// Fecth function:
 function goFetchSevenBestRatedMovies() {
     
     for(let i=0; i<5; i++) {
@@ -116,64 +112,75 @@ function goFetchSevenBestRatedMovies() {
 
     let a = 0;
     function veryBestMovie(movie) {
-        document.querySelector("#img"+`${a}`).src = movie.image_url;
-        a++;
-    }
-}
+        
+        let modal2 = document.getElementById("sevenBestRatedMoviesModal");
+        let imgModal = document.querySelector("#img"+`${a}`);
+        let span2 = document.getElementsByClassName("sevenBestRatedMoviesClose")[0];
 
+        imgModal.src = movie.image_url;
+        
+        /*for (let i = 0; i < cars.length; i++) {
+            
+            text += cars[i] + "<br>";
+        
+        }*/
+
+        imgModal.onclick = function() {
+            
+            let i = 0;
+            if (i !== a) {
+
+                modal2.style.display = "block";
+                document.querySelector("#sevenBestRatedMoviesImg"+`${i}`).src = movie.image_url;
+                document.querySelector("#sevenBestRatedMoviesTitle"+`${i}`).innerHTML = movie.title;
+                document.querySelector("#sevenBestRatedMoviesImdbScore"+`${i}`).innerHTML = '<em style="color: #0bff09;">Note: </em>' + movie.imdb_score;
+                document.querySelector("#sevenBestRatedMoviesGenres"+`${i}`).innerHTML = '<em style="color: #0bff09;">Genre: </em>' + movie.genres;
+                document.querySelector("#sevenBestRatedMoviesDatePublished"+`${i}`).innerHTML = '<em style="color: #0bff09;">Date de sortie: </em>' + movie.date_published;
+                document.querySelector("#sevenBestRatedMoviesRated"+`${i}`).innerHTML = '<em style="color: #0bff09;">Rated: </em>' + movie.rated;
+                document.querySelector("#sevenBestRatedMoviesDirectors"+`${i}`).innerHTML = '<em style="color: #0bff09;">Réalisateur: </em>' + movie.directors;
+                document.querySelector("#sevenBestRatedMoviesActors"+`${i}`).innerHTML = '<em style="color: #0bff09;">Acteurs: </em>' + movie.actors;
+                document.querySelector("#sevenBestRatedMoviesDuration"+`${i}`).innerHTML = '<em style="color: #0bff09;">Durée: </em>' + movie.duration + 'min';
+                document.querySelector("#sevenBestRatedMoviesCountries"+`${i}`).innerHTML = '<em style="color: #0bff09;">Pays: </em>' + movie.countries;
+                document.querySelector("#sevenBestRatedMoviesGlobalGrossIncome"+`${i}`).innerHTML = '<em style="color: #0bff09;">Box Office: </em>' + movie.worldwide_gross_income;
+                document.querySelector("#sevenBestRatedMoviesShortDesc"+`${i}`).innerHTML = '<em style="color: #0bff09;">Résumé: </em>' + movie.description;
+            }
+        }
+
+        span2.onclick = function() {
+            modal2.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+
+        a++;
+
+    }
+
+}
 goFetchSevenBestRatedMovies();
 
-// $$$$$$$ end Trial *******
 
-/*
 
-// 4. Fetch data for each individual movie for modal display:
-// First the url for each movie, then fetch for data:
 
-for(let i=0; i<url7BestMovies.length; i++) {
-  let urlM="";
-  fetch(i)
-    .then(data => data.json())
-    .then(d => urlM = d.results[0].url)
-    .catch(err => console.log(err.message));
-  
-    fetch(urlM)
-    .then(data => data.json())
-    .then(d => the7BestMovies(d))
-    .catch(err => console.log(err.message));
-  
-  function the7BestMovies(movie) {
-    console.log(movie.results[i].image_url);
-    console.log(movie.results[i].title);
-    console.log(movie.results[i].genres);
-    console.log(movie.results[i].date_published);
-    console.log(movie.results[i].rated);
-    console.log(movie.results[i].imdb_score);
-    console.log(movie.results[i].directors);
-    console.log(movie.results[i].actors);
-    console.log(movie.results[i].duration);
-    console.log(movie.results[i].countries);
-    console.log(movie.results[i].worldwide_gross_income);
-    console.log(movie.results[i].description);
-  }
-}
-*/
 
-// ***************** DATA REQUIRED FOR MODALS *************
-/*
-console.log(movie.results[i].url);
-console.log(movie.results[i].image_url);
-console.log(movie.results[i].title);
-console.log(movie.results[i].genres);
-console.log(movie.results[i].date_published);
-console.log(movie.results[i].rated);
-console.log(movie.results[i].imdb_score);
-console.log(movie.results[i].directors);
-console.log(movie.results[i].actors);
-console.log(movie.results[i].duration);
-console.log(movie.results[i].countries);
-console.log(movie.results[i].worldwide_gross_income);
-console.log(movie.results[i].description);
+
+/* DATA REQUIRED FOR MODALS:
+movie.image_url
+movie.imdb_score
+movie.title
+movie.genres
+movie.date_published
+movie.rated
+movie.directors
+movie.actors
+movie.duration
+movie.countries
+movie.worldwide_gross_income
+movie.descritpion
 */
 
 

@@ -43,6 +43,16 @@ html {
 }
 */
 
+#img0,
+#img1,
+#img2,
+#img3,
+#img4,
+#img5,
+#img6 {
+    cursor:pointer;
+}
+
 .container {
     text-align: center;
 }
@@ -145,7 +155,8 @@ h3 {
   
 /* *********** Modal ********* */
 /* The Modal (background) */
-.modal {
+.modal,
+.modal2 {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -159,7 +170,8 @@ h3 {
 }
   
 /* Modal Content/Box */
-.modal-content {
+.modal-content,
+.modal2-content {
 background-color: #464646f3;
 color:white;
 margin: 15% auto; /* 15% from the top and centered */
@@ -169,13 +181,15 @@ border-radius: 0.3em;
 width: 50%; /* Could be more or less, depending on screen size */
 }
 
-.modal-content p {
+.modal-content p,
+.modal2-content p {
     margin: 5px;
     font-size: 14px;
 }
 
 /* The Close Button */
-.close {
+.close,
+.sevenBestRatedMoviesClose {
 color: rgb(252, 252, 252);
 float: right;
 font-size: 20px;
@@ -183,13 +197,18 @@ font-weight: bold;
 }
 
 .close:hover,
-.close:focus {
+.sevenBestRatedMoviesClose:hover,
+.close:focus,
+.sevenBestRatedMoviesClose:focus {
 color: red;
 text-decoration: none;
 cursor: pointer;
 }
 
 /* *** */
+
+
+
 
 div.header.container {
     margin-bottom: 4em;
@@ -224,6 +243,7 @@ h1#bestRatedMovieTitle1 {
     font-size: 5em;
     margin-bottom: 15px;
     margin-top: 0;
+    color: white;
 }
 
 p#bestRatedMovieShortDesc1 {

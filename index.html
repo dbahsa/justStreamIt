@@ -46,15 +46,15 @@
                         <p id="bestRatedMovieImdbScore1"></p> <!-- get: "imdb_score" --> 
                         <h1 id="bestRatedMovieTitle1"></h1> <!-- get: "title" --> 
                         <button class="btn glow-on-hover" id="bestRatedMovieButton">Info</button>
-                        <p id="bestRatedMovieShortDesc1" ></p>  <!-- get: "description" -->
+                        <p id="bestRatedMovieShortDesc1"></p>  <!-- get: "description" -->
                     </td>
                     <td>
                         <img id="bestRatedMovieImg1" src="" alt=""> <!-- get: "image_url" -->
                     </td>
                 </tr>
             </table>
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
+            <!-- Modal Best Rated Movie -->
+            <div id="bestRatedMovieModal" class="modal">
                 <!-- Modal content -->
                 <div class="modal-content">
                     <span class="close">&times;</span>
@@ -96,9 +96,11 @@
         <h2 id="sevenBestRatedMoviesHeader">Films les mieux notés</h2>
         <div class="sevenBestRatedMoviesContainer">
             <div class="sevenBestRatedMoviesrow">
+                
                 <div class="" id="sevenBestRatedMoviesPrev">
                     <span class="nav-arrow">◄</span>
                 </div>
+                
                 <div class="sevenBestRatedMoviesSlider" id="sevenBestRatedMoviesGallery">
                     <img id="img0" src="" alt="">
                     <img id="img1" src="" alt="">
@@ -108,11 +110,146 @@
                     <img id="img5" src="" alt="">
                     <img id="img6" src="" alt="">
                 </div>
+                
+                <!-- Modal 7 Best Rated Movies -->
+                <div id="sevenBestRatedMoviesModal" class="modal2">
+                    <!-- Modal content -->
+                    <div class="modal2-content">
+                        <span class="sevenBestRatedMoviesClose">&times;</span>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h2 id="sevenBestRatedMoviesTitle0"></h1> <!-- get: "title" -->
+                                        <h2 id="sevenBestRatedMoviesTitle1"></h1> <!-- get: "title" -->
+                                        <h2 id="sevenBestRatedMoviesTitle2"></h1> <!-- get: "title" -->
+                                        <h2 id="sevenBestRatedMoviesTitle3"></h1> <!-- get: "title" -->
+                                        <h2 id="sevenBestRatedMoviesTitle4"></h1> <!-- get: "title" -->
+                                        <h2 id="sevenBestRatedMoviesTitle5"></h1> <!-- get: "title" -->
+                                        <h2 id="sevenBestRatedMoviesTitle6"></h1> <!-- get: "title" -->
+                                        <hr>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        
+                                        <img id="sevenBestRatedMoviesImg0" src="" alt=""> <!-- get: "image_url" -->
+                                        <img id="sevenBestRatedMoviesImg1" src="" alt="">
+                                        <img id="sevenBestRatedMoviesImg2" src="" alt="">
+                                        <img id="sevenBestRatedMoviesImg3" src="" alt="">
+                                        <img id="sevenBestRatedMoviesImg4" src="" alt="">
+                                        <img id="sevenBestRatedMoviesImg5" src="" alt="">
+                                        <img id="sevenBestRatedMoviesImg6" src="" alt="">
+                                    
+                                    </td>
+                                    <td>
+                                        <p id="sevenBestRatedMoviesImdbScore0"></p> <!-- get: "imdb_score" -->
+                                        <p id="sevenBestRatedMoviesImdbScore1"></p> <!-- get: "imdb_score" -->
+                                        <p id="sevenBestRatedMoviesImdbScore2"></p> <!-- get: "imdb_score" -->
+                                        <p id="sevenBestRatedMoviesImdbScore3"></p> <!-- get: "imdb_score" -->
+                                        <p id="sevenBestRatedMoviesImdbScore4"></p> <!-- get: "imdb_score" -->
+                                        <p id="sevenBestRatedMoviesImdbScore5"></p> <!-- get: "imdb_score" -->
+                                        <p id="sevenBestRatedMoviesImdbScore6"></p> <!-- get: "imdb_score" -->
+                                        
+                                        <p id="sevenBestRatedMoviesGenres0"></p>  <!-- get: "genres" -->
+                                        <p id="sevenBestRatedMoviesGenres1"></p>  <!-- get: "genres" -->
+                                        <p id="sevenBestRatedMoviesGenres2"></p>  <!-- get: "genres" -->
+                                        <p id="sevenBestRatedMoviesGenres3"></p>  <!-- get: "genres" -->
+                                        <p id="sevenBestRatedMoviesGenres4"></p>  <!-- get: "genres" -->
+                                        <p id="sevenBestRatedMoviesGenres5"></p>  <!-- get: "genres" -->
+                                        <p id="sevenBestRatedMoviesGenres6"></p>  <!-- get: "genres" -->
+                                        
+                                        <p id="sevenBestRatedMoviesDatePublished0"></p>  <!-- get: "date_published" -->
+                                        <p id="sevenBestRatedMoviesDatePublished1"></p>  <!-- get: "date_published" -->
+                                        <p id="sevenBestRatedMoviesDatePublished2"></p>  <!-- get: "date_published" -->
+                                        <p id="sevenBestRatedMoviesDatePublished3"></p>  <!-- get: "date_published" -->
+                                        <p id="sevenBestRatedMoviesDatePublished4"></p>  <!-- get: "date_published" -->
+                                        <p id="sevenBestRatedMoviesDatePublished5"></p>  <!-- get: "date_published" -->
+                                        <p id="sevenBestRatedMoviesDatePublished6"></p>  <!-- get: "date_published" -->
+                                        
+                                        <p id="sevenBestRatedMoviesRated0"></p>  <!-- get: "rated" -->
+                                        <p id="sevenBestRatedMoviesRated1"></p>  <!-- get: "rated" -->
+                                        <p id="sevenBestRatedMoviesRated2"></p>  <!-- get: "rated" -->
+                                        <p id="sevenBestRatedMoviesRated3"></p>  <!-- get: "rated" -->
+                                        <p id="sevenBestRatedMoviesRated4"></p>  <!-- get: "rated" -->
+                                        <p id="sevenBestRatedMoviesRated5"></p>  <!-- get: "rated" -->
+                                        <p id="sevenBestRatedMoviesRated6"></p>  <!-- get: "rated" -->
+                                        
+                                        <p id="sevenBestRatedMoviesDuration0"></p>  <!-- get: "duration" -->
+                                        <p id="sevenBestRatedMoviesDuration1"></p>  <!-- get: "duration" -->
+                                        <p id="sevenBestRatedMoviesDuration2"></p>  <!-- get: "duration" -->
+                                        <p id="sevenBestRatedMoviesDuration3"></p>  <!-- get: "duration" -->
+                                        <p id="sevenBestRatedMoviesDuration4"></p>  <!-- get: "duration" -->
+                                        <p id="sevenBestRatedMoviesDuration5"></p>  <!-- get: "duration" -->
+                                        <p id="sevenBestRatedMoviesDuration6"></p>  <!-- get: "duration" -->
+                                        
+                                        <p id="sevenBestRatedMoviesDirectors0"></p>  <!-- get: "directors" -->
+                                        <p id="sevenBestRatedMoviesDirectors1"></p>  <!-- get: "directors" -->
+                                        <p id="sevenBestRatedMoviesDirectors2"></p>  <!-- get: "directors" -->
+                                        <p id="sevenBestRatedMoviesDirectors3"></p>  <!-- get: "directors" -->
+                                        <p id="sevenBestRatedMoviesDirectors4"></p>  <!-- get: "directors" -->
+                                        <p id="sevenBestRatedMoviesDirectors5"></p>  <!-- get: "directors" -->
+                                        <p id="sevenBestRatedMoviesDirectors6"></p>  <!-- get: "directors" -->
+                                        
+                                        <p id="sevenBestRatedMoviesActors0"></p>  <!-- get: "actors" -->
+                                        <p id="sevenBestRatedMoviesActors1"></p>  <!-- get: "actors" -->
+                                        <p id="sevenBestRatedMoviesActors2"></p>  <!-- get: "actors" -->
+                                        <p id="sevenBestRatedMoviesActors3"></p>  <!-- get: "actors" -->
+                                        <p id="sevenBestRatedMoviesActors4"></p>  <!-- get: "actors" -->
+                                        <p id="sevenBestRatedMoviesActors5"></p>  <!-- get: "actors" -->
+                                        <p id="sevenBestRatedMoviesActors6"></p>  <!-- get: "actors" -->
+                                        
+                                        <p id="sevenBestRatedMoviesCountries0"></p>  <!-- get: "countries" -->
+                                        <p id="sevenBestRatedMoviesCountries1"></p>  <!-- get: "countries" -->
+                                        <p id="sevenBestRatedMoviesCountries2"></p>  <!-- get: "countries" -->
+                                        <p id="sevenBestRatedMoviesCountries3"></p>  <!-- get: "countries" -->
+                                        <p id="sevenBestRatedMoviesCountries4"></p>  <!-- get: "countries" -->
+                                        <p id="sevenBestRatedMoviesCountries5"></p>  <!-- get: "countries" -->
+                                        <p id="sevenBestRatedMoviesCountries6"></p>  <!-- get: "countries" -->
+                                        
+                                        <p id="sevenBestRatedMoviesGlobalGrossIncome0"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="sevenBestRatedMoviesGlobalGrossIncome1"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="sevenBestRatedMoviesGlobalGrossIncome2"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="sevenBestRatedMoviesGlobalGrossIncome3"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="sevenBestRatedMoviesGlobalGrossIncome4"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="sevenBestRatedMoviesGlobalGrossIncome5"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="sevenBestRatedMoviesGlobalGrossIncome6"></p>  <!-- get: "worldwide_gross_income" -->
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p id="sevenBestRatedMoviesShortDesc0"></p>  <!-- get: "description" -->
+                        <p id="sevenBestRatedMoviesShortDesc1"></p>  <!-- get: "description" -->
+                        <p id="sevenBestRatedMoviesShortDesc2"></p>  <!-- get: "description" -->
+                        <p id="sevenBestRatedMoviesShortDesc3"></p>  <!-- get: "description" -->
+                        <p id="sevenBestRatedMoviesShortDesc4"></p>  <!-- get: "description" -->
+                        <p id="sevenBestRatedMoviesShortDesc5"></p>  <!-- get: "description" -->
+                        <p id="sevenBestRatedMoviesShortDesc6"></p>  <!-- get: "description" -->
+                    </div>
+                </div>
+
+                
                 <div class="" id="sevenBestRatedMoviesNext">
                     <span class="nav-arrow">►</i></span>
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- 7 Best rated Action movies -->
         <h2 id="sevenBestRatedActionMoviesHeader">Meilleurs films d'action</h2>
