@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <!-- The Best rated movie regardless category -->
+        <!-- 7 Best Rated Movie (all category) -->
         <h2 id="bestRatedMovieHeader">Meilleur film</h2>
         <div class="bestRatedMovieContainer">
             <table>
@@ -92,18 +92,12 @@
             </div>
         </div>
 
-        <!-- 7 Best rated movies regardless category -->
+        <!-- 7 Best Rated Movies (all category) -->
         <h2 id="sevenBestRatedMoviesHeader">Films les mieux notés</h2>
         
         <div class="sevenBestRatedMoviesContainer slideshow-container">
            
             <div class="sevenBestRatedMoviesrow">
-                
-                <!--
-                <div class="" id="sevenBestRatedMoviesPrev">
-                    <span class="nav-arrow">◄</span>
-                </div>
-                -->
                 
                 <div class="sevenBestRatedMoviesSlider row" id="sevenBestRatedMoviesGallery">
                     
@@ -255,121 +249,492 @@
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 
-                <!--
-                <div class="" id="sevenBestRatedMoviesNext">
-                <span class="nav-arrow">►</i></span>
+            </div>
+        </div>
+
+        <!-- 7 Best Rated Action movies -->
+        <h2 id="actionMoviesHeader">Meilleurs films d'action</h2>
+        
+        <div class="actionMoviesContainer  slideshow-container">
+           
+            <div class="actionMoviesRow">
+
+                <div class="actionMoviesSlider row" id="actionMoviesGallery">
+                    
+                    <div class="myActionSlides fade column">
+                        <img class="demo cursor" id="imgAction0" src="" style="width:100%" onclick="currentActionSlide(1)" alt="">
+                    </div>
+                    <div class="myActionSlides fade column">
+                        <img class="demo cursor" id="imgAction1" src="" style="width:100%" onclick="currentActionSlide(2)" alt="">
+                    </div>
+                    <div class="myActionSlides fade column">
+                        <img class="demo cursor" id="imgAction2" src="" style="width:100%" onclick="currentActionSlide(3)" alt="">
+                    </div>
+                    <div class="myActionSlides fade column">
+                        <img class="demo cursor" id="imgAction3" src="" style="width:100%" onclick="currentActionSlide(4)" alt="">
+                    </div>
+                    <div class="myActionSlides fade column">
+                        <img class="demo cursor" id="imgAction4" src="" style="width:100%" onclick="currentActionSlide(5)" alt="">
+                    </div>
+                    <div class="myActionSlides fade column">
+                        <img class="demo cursor" id="imgAction5" src="" style="width:100%" onclick="currentActionSlide(6)" alt="">
+                    </div>
+                    <div class="myActionSlides fade column">
+                        <img class="demo cursor" id="imgAction6" src="" style="width:100%" onclick="currentActionSlide(7)" alt="">
+                    </div>
+                    
                 </div>
-                -->
+
+                <!-- Modal 7 Best Rated Action Movies -->
+                <div id="actionMoviesModal" class="modal3">
+                    <!-- Modal content -->
+                    <div class="modal3-content">
+                        <span class="actionMoviesClose">&times;</span>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h2 id="actionMoviesTitle0"></h1> <!-- get: "title" -->
+                                        <h2 id="actionMoviesTitle1"></h1> <!-- get: "title" -->
+                                        <h2 id="actionMoviesTitle2"></h1> <!-- get: "title" -->
+                                        <h2 id="actionMoviesTitle3"></h1> <!-- get: "title" -->
+                                        <h2 id="actionMoviesTitle4"></h1> <!-- get: "title" -->
+                                        <h2 id="actionMoviesTitle5"></h1> <!-- get: "title" -->
+                                        <h2 id="actionMoviesTitle6"></h1> <!-- get: "title" -->
+                                        <hr>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        
+                                        <img id="actionMoviesImg0" src="" alt=""> <!-- get: "image_url" -->
+                                        <img id="actionMoviesImg1" src="" alt="">
+                                        <img id="actionMoviesImg2" src="" alt="">
+                                        <img id="actionMoviesImg3" src="" alt="">
+                                        <img id="actionMoviesImg4" src="" alt="">
+                                        <img id="actionMoviesImg5" src="" alt="">
+                                        <img id="actionMoviesImg6" src="" alt="">
+                                    
+                                    </td>
+                                    <td>
+                                        <p id="actionMoviesImdbScore0"></p> <!-- get: "imdb_score" -->
+                                        <p id="actionMoviesImdbScore1"></p> <!-- get: "imdb_score" -->
+                                        <p id="actionMoviesImdbScore2"></p> <!-- get: "imdb_score" -->
+                                        <p id="actionMoviesImdbScore3"></p> <!-- get: "imdb_score" -->
+                                        <p id="actionMoviesImdbScore4"></p> <!-- get: "imdb_score" -->
+                                        <p id="actionMoviesImdbScore5"></p> <!-- get: "imdb_score" -->
+                                        <p id="actionMoviesImdbScore6"></p> <!-- get: "imdb_score" -->
+                                        
+                                        <p id="actionMoviesGenres0"></p>  <!-- get: "genres" -->
+                                        <p id="actionMoviesGenres1"></p>  <!-- get: "genres" -->
+                                        <p id="actionMoviesGenres2"></p>  <!-- get: "genres" -->
+                                        <p id="actionMoviesGenres3"></p>  <!-- get: "genres" -->
+                                        <p id="actionMoviesGenres4"></p>  <!-- get: "genres" -->
+                                        <p id="actionMoviesGenres5"></p>  <!-- get: "genres" -->
+                                        <p id="actionMoviesGenres6"></p>  <!-- get: "genres" -->
+                                        
+                                        <p id="actionMoviesDatePublished0"></p>  <!-- get: "date_published" -->
+                                        <p id="actionMoviesDatePublished1"></p>  <!-- get: "date_published" -->
+                                        <p id="actionMoviesDatePublished2"></p>  <!-- get: "date_published" -->
+                                        <p id="actionMoviesDatePublished3"></p>  <!-- get: "date_published" -->
+                                        <p id="actionMoviesDatePublished4"></p>  <!-- get: "date_published" -->
+                                        <p id="actionMoviesDatePublished5"></p>  <!-- get: "date_published" -->
+                                        <p id="actionMoviesDatePublished6"></p>  <!-- get: "date_published" -->
+                                        
+                                        <p id="actionMoviesRated0"></p>  <!-- get: "rated" -->
+                                        <p id="actionMoviesRated1"></p>  <!-- get: "rated" -->
+                                        <p id="actionMoviesRated2"></p>  <!-- get: "rated" -->
+                                        <p id="actionMoviesRated3"></p>  <!-- get: "rated" -->
+                                        <p id="actionMoviesRated4"></p>  <!-- get: "rated" -->
+                                        <p id="actionMoviesRated5"></p>  <!-- get: "rated" -->
+                                        <p id="actionMoviesRated6"></p>  <!-- get: "rated" -->
+                                        
+                                        <p id="actionMoviesDuration0"></p>  <!-- get: "duration" -->
+                                        <p id="actionMoviesDuration1"></p>  <!-- get: "duration" -->
+                                        <p id="actionMoviesDuration2"></p>  <!-- get: "duration" -->
+                                        <p id="actionMoviesDuration3"></p>  <!-- get: "duration" -->
+                                        <p id="actionMoviesDuration4"></p>  <!-- get: "duration" -->
+                                        <p id="actionMoviesDuration5"></p>  <!-- get: "duration" -->
+                                        <p id="actionMoviesDuration6"></p>  <!-- get: "duration" -->
+                                        
+                                        <p id="actionMoviesDirectors0"></p>  <!-- get: "directors" -->
+                                        <p id="actionMoviesDirectors1"></p>  <!-- get: "directors" -->
+                                        <p id="actionMoviesDirectors2"></p>  <!-- get: "directors" -->
+                                        <p id="actionMoviesDirectors3"></p>  <!-- get: "directors" -->
+                                        <p id="actionMoviesDirectors4"></p>  <!-- get: "directors" -->
+                                        <p id="actionMoviesDirectors5"></p>  <!-- get: "directors" -->
+                                        <p id="actionMoviesDirectors6"></p>  <!-- get: "directors" -->
+                                        
+                                        <p id="actionMoviesActors0"></p>  <!-- get: "actors" -->
+                                        <p id="actionMoviesActors1"></p>  <!-- get: "actors" -->
+                                        <p id="actionMoviesActors2"></p>  <!-- get: "actors" -->
+                                        <p id="actionMoviesActors3"></p>  <!-- get: "actors" -->
+                                        <p id="actionMoviesActors4"></p>  <!-- get: "actors" -->
+                                        <p id="actionMoviesActors5"></p>  <!-- get: "actors" -->
+                                        <p id="actionMoviesActors6"></p>  <!-- get: "actors" -->
+                                        
+                                        <p id="actionMoviesCountries0"></p>  <!-- get: "countries" -->
+                                        <p id="actionMoviesCountries1"></p>  <!-- get: "countries" -->
+                                        <p id="actionMoviesCountries2"></p>  <!-- get: "countries" -->
+                                        <p id="actionMoviesCountries3"></p>  <!-- get: "countries" -->
+                                        <p id="actionMoviesCountries4"></p>  <!-- get: "countries" -->
+                                        <p id="actionMoviesCountries5"></p>  <!-- get: "countries" -->
+                                        <p id="actionMoviesCountries6"></p>  <!-- get: "countries" -->
+                                        
+                                        <p id="actionMoviesGlobalGrossIncome0"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="actionMoviesGlobalGrossIncome1"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="actionMoviesGlobalGrossIncome2"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="actionMoviesGlobalGrossIncome3"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="actionMoviesGlobalGrossIncome4"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="actionMoviesGlobalGrossIncome5"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="actionMoviesGlobalGrossIncome6"></p>  <!-- get: "worldwide_gross_income" -->
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p id="actionMoviesShortDesc0"></p>  <!-- get: "description" -->
+                        <p id="actionMoviesShortDesc1"></p>  <!-- get: "description" -->
+                        <p id="actionMoviesShortDesc2"></p>  <!-- get: "description" -->
+                        <p id="actionMoviesShortDesc3"></p>  <!-- get: "description" -->
+                        <p id="actionMoviesShortDesc4"></p>  <!-- get: "description" -->
+                        <p id="actionMoviesShortDesc5"></p>  <!-- get: "description" -->
+                        <p id="actionMoviesShortDesc6"></p>  <!-- get: "description" -->
+                    </div>
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusActionSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusACtionSlides(1)">&#10095;</a>
                 
             
             </div>
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- 7 Best rated Action movies -->
-        <h2 id="sevenBestRatedActionMoviesHeader">Meilleurs films d'action</h2>
-        <div class="sevenBestRatedActionMoviesContainer">
-            <div class="sevenBestRatedActionMoviesRow">
-                <div class="" id="sevenBestRatedActionMoviesPrev">
-                    <span class="nav-arrow">◄</span>
+        <!-- 7 Best Rated Animation Movies -->
+        <h2 id="animMoviesHeader">Meilleurs films d'animation</h2>
+        
+        <div class="animMoviesContainer slideshow-container">
+            
+            <div class="animMoviesRow">
+                
+                <div class="animMoviesSlider row" id="animMoviesGallery">
+                    
+                    <div class="myAnimSlides fade column">
+                        <img class="demo cursor" id="imgAnim0" src="" style="width:100%" onclick="currentAnimSlide(1)" alt="">
+                    </div>
+                    <div class="myAnimSlides fade column">
+                        <img class="demo cursor" id="imgAnim1" src="" style="width:100%" onclick="currentAnimSlide(2)" alt="">
+                    </div>
+                    <div class="myAnimSlides fade column">
+                        <img class="demo cursor" id="imgAnim2" src="" style="width:100%" onclick="currentAnimSlide(3)" alt="">
+                    </div>
+                    <div class="myAnimSlides fade column">
+                        <img class="demo cursor" id="imgAnim3" src="" style="width:100%" onclick="currentAnimSlide(4)" alt="">
+                    </div>
+                    <div class="myAnimSlides fade column">
+                        <img class="demo cursor" id="imgAnim4" src="" style="width:100%" onclick="currentAnimSlide(5)" alt="">
+                    </div>
+                    <div class="myAnimSlides fade column">
+                        <img class="demo cursor" id="imgAnim5" src="" style="width:100%" onclick="currentAnimSlide(6)" alt="">
+                    </div>
+                    <div class="myAnimSlides fade column">
+                        <img class="demo cursor" id="imgAnim6" src="" style="width:100%" onclick="currentAnimSlide(7)" alt="">
+                    </div>
+                
                 </div>
-                <div class="sevenBestRatedActionMoviesSlider" id="sevenBestRatedActionMoviesGallery">
-                    <img id="sevenBestRatedActionMoviesImg1" src="" alt="">
-                    <img id="sevenBestRatedActionMoviesImg2" src="" alt="">
-                    <img id="sevenBestRatedActionMoviesImg3" src="" alt="">
-                    <img id="sevenBestRatedActionMoviesImg4" src="" alt="">
-                    <img id="sevenBestRatedActionMoviesImg5" src="" alt="">
-                    <img id="sevenBestRatedActionMoviesImg6" src="" alt="">
-                    <img id="sevenBestRatedActionMoviesImg7" src="" alt="">
+
+                <!-- Modal 7 Best Rated Anim Movies -->
+                <div id="animMoviesModal" class="modal4">
+                    <!-- Modal content -->
+                    <div class="modal4-content">
+                        <span class="animMoviesClose">&times;</span>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h2 id="animMoviesTitle0"></h1> <!-- get: "title" -->
+                                        <h2 id="animMoviesTitle1"></h1> <!-- get: "title" -->
+                                        <h2 id="animMoviesTitle2"></h1> <!-- get: "title" -->
+                                        <h2 id="animMoviesTitle3"></h1> <!-- get: "title" -->
+                                        <h2 id="animMoviesTitle4"></h1> <!-- get: "title" -->
+                                        <h2 id="animMoviesTitle5"></h1> <!-- get: "title" -->
+                                        <h2 id="animMoviesTitle6"></h1> <!-- get: "title" -->
+                                        <hr>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        
+                                        <img id="animMoviesImg0" src="" alt=""> <!-- get: "image_url" -->
+                                        <img id="animMoviesImg1" src="" alt="">
+                                        <img id="animMoviesImg2" src="" alt="">
+                                        <img id="animMoviesImg3" src="" alt="">
+                                        <img id="animMoviesImg4" src="" alt="">
+                                        <img id="animMoviesImg5" src="" alt="">
+                                        <img id="animMoviesImg6" src="" alt="">
+                                    
+                                    </td>
+                                    <td>
+                                        <p id="animMoviesImdbScore0"></p> <!-- get: "imdb_score" -->
+                                        <p id="animMoviesImdbScore1"></p> <!-- get: "imdb_score" -->
+                                        <p id="animMoviesImdbScore2"></p> <!-- get: "imdb_score" -->
+                                        <p id="animMoviesImdbScore3"></p> <!-- get: "imdb_score" -->
+                                        <p id="animMoviesImdbScore4"></p> <!-- get: "imdb_score" -->
+                                        <p id="animMoviesImdbScore5"></p> <!-- get: "imdb_score" -->
+                                        <p id="animMoviesImdbScore6"></p> <!-- get: "imdb_score" -->
+                                        
+                                        <p id="animMoviesGenres0"></p>  <!-- get: "genres" -->
+                                        <p id="animMoviesGenres1"></p>  <!-- get: "genres" -->
+                                        <p id="animMoviesGenres2"></p>  <!-- get: "genres" -->
+                                        <p id="animMoviesGenres3"></p>  <!-- get: "genres" -->
+                                        <p id="animMoviesGenres4"></p>  <!-- get: "genres" -->
+                                        <p id="animMoviesGenres5"></p>  <!-- get: "genres" -->
+                                        <p id="animMoviesGenres6"></p>  <!-- get: "genres" -->
+                                        
+                                        <p id="animMoviesDatePublished0"></p>  <!-- get: "date_published" -->
+                                        <p id="animMoviesDatePublished1"></p>  <!-- get: "date_published" -->
+                                        <p id="animMoviesDatePublished2"></p>  <!-- get: "date_published" -->
+                                        <p id="animMoviesDatePublished3"></p>  <!-- get: "date_published" -->
+                                        <p id="animMoviesDatePublished4"></p>  <!-- get: "date_published" -->
+                                        <p id="animMoviesDatePublished5"></p>  <!-- get: "date_published" -->
+                                        <p id="animMoviesDatePublished6"></p>  <!-- get: "date_published" -->
+                                        
+                                        <p id="animMoviesRated0"></p>  <!-- get: "rated" -->
+                                        <p id="animMoviesRated1"></p>  <!-- get: "rated" -->
+                                        <p id="animMoviesRated2"></p>  <!-- get: "rated" -->
+                                        <p id="animMoviesRated3"></p>  <!-- get: "rated" -->
+                                        <p id="animMoviesRated4"></p>  <!-- get: "rated" -->
+                                        <p id="animMoviesRated5"></p>  <!-- get: "rated" -->
+                                        <p id="animMoviesRated6"></p>  <!-- get: "rated" -->
+                                        
+                                        <p id="animMoviesDuration0"></p>  <!-- get: "duration" -->
+                                        <p id="animMoviesDuration1"></p>  <!-- get: "duration" -->
+                                        <p id="animMoviesDuration2"></p>  <!-- get: "duration" -->
+                                        <p id="animMoviesDuration3"></p>  <!-- get: "duration" -->
+                                        <p id="animMoviesDuration4"></p>  <!-- get: "duration" -->
+                                        <p id="animMoviesDuration5"></p>  <!-- get: "duration" -->
+                                        <p id="animMoviesDuration6"></p>  <!-- get: "duration" -->
+                                        
+                                        <p id="animMoviesDirectors0"></p>  <!-- get: "directors" -->
+                                        <p id="animMoviesDirectors1"></p>  <!-- get: "directors" -->
+                                        <p id="animMoviesDirectors2"></p>  <!-- get: "directors" -->
+                                        <p id="animMoviesDirectors3"></p>  <!-- get: "directors" -->
+                                        <p id="animMoviesDirectors4"></p>  <!-- get: "directors" -->
+                                        <p id="animMoviesDirectors5"></p>  <!-- get: "directors" -->
+                                        <p id="animMoviesDirectors6"></p>  <!-- get: "directors" -->
+                                        
+                                        <p id="animMoviesActors0"></p>  <!-- get: "actors" -->
+                                        <p id="animMoviesActors1"></p>  <!-- get: "actors" -->
+                                        <p id="animMoviesActors2"></p>  <!-- get: "actors" -->
+                                        <p id="animMoviesActors3"></p>  <!-- get: "actors" -->
+                                        <p id="animMoviesActors4"></p>  <!-- get: "actors" -->
+                                        <p id="animMoviesActors5"></p>  <!-- get: "actors" -->
+                                        <p id="animMoviesActors6"></p>  <!-- get: "actors" -->
+                                        
+                                        <p id="animMoviesCountries0"></p>  <!-- get: "countries" -->
+                                        <p id="animMoviesCountries1"></p>  <!-- get: "countries" -->
+                                        <p id="animMoviesCountries2"></p>  <!-- get: "countries" -->
+                                        <p id="animMoviesCountries3"></p>  <!-- get: "countries" -->
+                                        <p id="animMoviesCountries4"></p>  <!-- get: "countries" -->
+                                        <p id="animMoviesCountries5"></p>  <!-- get: "countries" -->
+                                        <p id="animMoviesCountries6"></p>  <!-- get: "countries" -->
+                                        
+                                        <p id="animMoviesGlobalGrossIncome0"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="animMoviesGlobalGrossIncome1"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="animMoviesGlobalGrossIncome2"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="animMoviesGlobalGrossIncome3"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="animMoviesGlobalGrossIncome4"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="animMoviesGlobalGrossIncome5"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="animMoviesGlobalGrossIncome6"></p>  <!-- get: "worldwide_gross_income" -->
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p id="animMoviesShortDesc0"></p>  <!-- get: "description" -->
+                        <p id="animMoviesShortDesc1"></p>  <!-- get: "description" -->
+                        <p id="animMoviesShortDesc2"></p>  <!-- get: "description" -->
+                        <p id="animMoviesShortDesc3"></p>  <!-- get: "description" -->
+                        <p id="animMoviesShortDesc4"></p>  <!-- get: "description" -->
+                        <p id="animMoviesShortDesc5"></p>  <!-- get: "description" -->
+                        <p id="animMoviesShortDesc6"></p>  <!-- get: "description" -->
+                    </div>
                 </div>
-                <div class="" id="sevenBestRatedActionMoviesNext">
-                    <span class="nav-arrow">►</i></span>
-                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusAnimSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusAnimSlides(1)">&#10095;</a>
+            
             </div>
         </div>
 
-        <!-- 7 Best rated Adventure movies -->
-        <h2 id="sevenBestRatedAdventureMoviesHeader">Meilleurs films d'aventure</h2>
-        <div class="sevenBestRatedAdventureMoviesContainer">
-            <div class="sevenBestRatedAdventureMoviesRow">
-                <div class="" id="sevenBestRatedAdventureMoviesPrev">
-                    <span class="nav-arrow">◄</span>
+
+        <!-- 7 Best Rated Sci-Fi Movies -->
+        <h2 id="scifiMoviesHeader">Meilleurs films de science-fiction</h2>
+        
+        <div class="scifiMoviesContainer slideshow-container">
+            
+            <div class="scifiMoviesRow">
+                
+                <div class="scifiMoviesSlider row" id="scifiMoviesGallery">
+                    
+                    <div class="mySciFiSlides fade column">
+                        <img class="demo cursor" id="imgSciFi0" src="" style="width:100%" onclick="currentSciFiSlide(1)" alt="">
+                    </div>
+                    <div class="mySciFiSlides fade column">
+                        <img class="demo cursor" id="imgSciFi1" src="" style="width:100%" onclick="currentSciFiSlide(2)" alt="">
+                    </div>
+                    <div class="mySciFiSlides fade column">
+                        <img class="demo cursor" id="imgSciFi2" src="" style="width:100%" onclick="currentSciFiSlide(3)" alt="">
+                    </div>
+                    <div class="mySciFiSlides fade column">
+                        <img class="demo cursor" id="imgSciFi3" src="" style="width:100%" onclick="currentSciFiSlide(4)" alt="">
+                    </div>
+                    <div class="mySciFiSlides fade column">
+                        <img class="demo cursor" id="imgSciFi4" src="" style="width:100%" onclick="currentSciFiSlide(5)" alt="">
+                    </div>
+                    <div class="mySciFiSlides fade column">
+                        <img class="demo cursor" id="imgSciFi5" src="" style="width:100%" onclick="currentSciFiSlide(6)" alt="">
+                    </div>
+                    <div class="mySciFiSlides fade column">
+                        <img class="demo cursor" id="imgSciFi6" src="" style="width:100%" onclick="currentSciFiSlide(7)" alt="">
+                    </div>
+                
                 </div>
-                <div class="sevenBestRatedAdventureMoviesSlider" id="sevenBestRatedAdventureMoviesGallery">
-                    <img id="sevenBestRatedAdventureMoviesImg1" src="" alt="">
-                    <img id="sevenBestRatedAdventureMoviesImg2" src="" alt="">
-                    <img id="sevenBestRatedAdventureMoviesImg3" src="" alt="">
-                    <img id="sevenBestRatedAdventureMoviesImg4" src="" alt="">
-                    <img id="sevenBestRatedAdventureMoviesImg5" src="" alt="">
-                    <img id="sevenBestRatedAdventureMoviesImg6" src="" alt="">
-                    <img id="sevenBestRatedAdventureMoviesImg7" src="" alt="">
+
+                <!-- Modal 7 Best Rated Scifi Movies -->
+                <div id="scifiMoviesModal" class="modal5">
+                    <!-- Modal content -->
+                    <div class="modal5-content">
+                        <span class="scifiMoviesClose">&times;</span>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h2 id="scifiMoviesTitle0"></h1> <!-- get: "title" -->
+                                        <h2 id="scifiMoviesTitle1"></h1> <!-- get: "title" -->
+                                        <h2 id="scifiMoviesTitle2"></h1> <!-- get: "title" -->
+                                        <h2 id="scifiMoviesTitle3"></h1> <!-- get: "title" -->
+                                        <h2 id="scifiMoviesTitle4"></h1> <!-- get: "title" -->
+                                        <h2 id="scifiMoviesTitle5"></h1> <!-- get: "title" -->
+                                        <h2 id="scifiMoviesTitle6"></h1> <!-- get: "title" -->
+                                        <hr>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        
+                                        <img id="scifiMoviesImg0" src="" alt=""> <!-- get: "image_url" -->
+                                        <img id="scifiMoviesImg1" src="" alt="">
+                                        <img id="scifiMoviesImg2" src="" alt="">
+                                        <img id="scifiMoviesImg3" src="" alt="">
+                                        <img id="scifiMoviesImg4" src="" alt="">
+                                        <img id="scifiMoviesImg5" src="" alt="">
+                                        <img id="scifiMoviesImg6" src="" alt="">
+                                    
+                                    </td>
+                                    <td>
+                                        <p id="scifiMoviesImdbScore0"></p> <!-- get: "imdb_score" -->
+                                        <p id="scifiMoviesImdbScore1"></p> <!-- get: "imdb_score" -->
+                                        <p id="scifiMoviesImdbScore2"></p> <!-- get: "imdb_score" -->
+                                        <p id="scifiMoviesImdbScore3"></p> <!-- get: "imdb_score" -->
+                                        <p id="scifiMoviesImdbScore4"></p> <!-- get: "imdb_score" -->
+                                        <p id="scifiMoviesImdbScore5"></p> <!-- get: "imdb_score" -->
+                                        <p id="scifiMoviesImdbScore6"></p> <!-- get: "imdb_score" -->
+                                        
+                                        <p id="scifiMoviesGenres0"></p>  <!-- get: "genres" -->
+                                        <p id="scifiMoviesGenres1"></p>  <!-- get: "genres" -->
+                                        <p id="scifiMoviesGenres2"></p>  <!-- get: "genres" -->
+                                        <p id="scifiMoviesGenres3"></p>  <!-- get: "genres" -->
+                                        <p id="scifiMoviesGenres4"></p>  <!-- get: "genres" -->
+                                        <p id="scifiMoviesGenres5"></p>  <!-- get: "genres" -->
+                                        <p id="scifiMoviesGenres6"></p>  <!-- get: "genres" -->
+                                        
+                                        <p id="scifiMoviesDatePublished0"></p>  <!-- get: "date_published" -->
+                                        <p id="scifiMoviesDatePublished1"></p>  <!-- get: "date_published" -->
+                                        <p id="scifiMoviesDatePublished2"></p>  <!-- get: "date_published" -->
+                                        <p id="scifiMoviesDatePublished3"></p>  <!-- get: "date_published" -->
+                                        <p id="scifiMoviesDatePublished4"></p>  <!-- get: "date_published" -->
+                                        <p id="scifiMoviesDatePublished5"></p>  <!-- get: "date_published" -->
+                                        <p id="scifiMoviesDatePublished6"></p>  <!-- get: "date_published" -->
+                                        
+                                        <p id="scifiMoviesRated0"></p>  <!-- get: "rated" -->
+                                        <p id="scifiMoviesRated1"></p>  <!-- get: "rated" -->
+                                        <p id="scifiMoviesRated2"></p>  <!-- get: "rated" -->
+                                        <p id="scifiMoviesRated3"></p>  <!-- get: "rated" -->
+                                        <p id="scifiMoviesRated4"></p>  <!-- get: "rated" -->
+                                        <p id="scifiMoviesRated5"></p>  <!-- get: "rated" -->
+                                        <p id="scifiMoviesRated6"></p>  <!-- get: "rated" -->
+                                        
+                                        <p id="scifiMoviesDuration0"></p>  <!-- get: "duration" -->
+                                        <p id="scifiMoviesDuration1"></p>  <!-- get: "duration" -->
+                                        <p id="scifiMoviesDuration2"></p>  <!-- get: "duration" -->
+                                        <p id="scifiMoviesDuration3"></p>  <!-- get: "duration" -->
+                                        <p id="scifiMoviesDuration4"></p>  <!-- get: "duration" -->
+                                        <p id="scifiMoviesDuration5"></p>  <!-- get: "duration" -->
+                                        <p id="scifiMoviesDuration6"></p>  <!-- get: "duration" -->
+                                        
+                                        <p id="scifiMoviesDirectors0"></p>  <!-- get: "directors" -->
+                                        <p id="scifiMoviesDirectors1"></p>  <!-- get: "directors" -->
+                                        <p id="scifiMoviesDirectors2"></p>  <!-- get: "directors" -->
+                                        <p id="scifiMoviesDirectors3"></p>  <!-- get: "directors" -->
+                                        <p id="scifiMoviesDirectors4"></p>  <!-- get: "directors" -->
+                                        <p id="scifiMoviesDirectors5"></p>  <!-- get: "directors" -->
+                                        <p id="scifiMoviesDirectors6"></p>  <!-- get: "directors" -->
+                                        
+                                        <p id="scifiMoviesActors0"></p>  <!-- get: "actors" -->
+                                        <p id="scifiMoviesActors1"></p>  <!-- get: "actors" -->
+                                        <p id="scifiMoviesActors2"></p>  <!-- get: "actors" -->
+                                        <p id="scifiMoviesActors3"></p>  <!-- get: "actors" -->
+                                        <p id="scifiMoviesActors4"></p>  <!-- get: "actors" -->
+                                        <p id="scifiMoviesActors5"></p>  <!-- get: "actors" -->
+                                        <p id="scifiMoviesActors6"></p>  <!-- get: "actors" -->
+                                        
+                                        <p id="scifiMoviesCountries0"></p>  <!-- get: "countries" -->
+                                        <p id="scifiMoviesCountries1"></p>  <!-- get: "countries" -->
+                                        <p id="scifiMoviesCountries2"></p>  <!-- get: "countries" -->
+                                        <p id="scifiMoviesCountries3"></p>  <!-- get: "countries" -->
+                                        <p id="scifiMoviesCountries4"></p>  <!-- get: "countries" -->
+                                        <p id="scifiMoviesCountries5"></p>  <!-- get: "countries" -->
+                                        <p id="scifiMoviesCountries6"></p>  <!-- get: "countries" -->
+                                        
+                                        <p id="scifiMoviesGlobalGrossIncome0"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="scifiMoviesGlobalGrossIncome1"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="scifiMoviesGlobalGrossIncome2"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="scifiMoviesGlobalGrossIncome3"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="scifiMoviesGlobalGrossIncome4"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="scifiMoviesGlobalGrossIncome5"></p>  <!-- get: "worldwide_gross_income" -->
+                                        <p id="scifiMoviesGlobalGrossIncome6"></p>  <!-- get: "worldwide_gross_income" -->
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p id="scifiMoviesShortDesc0"></p>  <!-- get: "description" -->
+                        <p id="scifiMoviesShortDesc1"></p>  <!-- get: "description" -->
+                        <p id="scifiMoviesShortDesc2"></p>  <!-- get: "description" -->
+                        <p id="scifiMoviesShortDesc3"></p>  <!-- get: "description" -->
+                        <p id="scifiMoviesShortDesc4"></p>  <!-- get: "description" -->
+                        <p id="scifiMoviesShortDesc5"></p>  <!-- get: "description" -->
+                        <p id="scifiMoviesShortDesc6"></p>  <!-- get: "description" -->
+                    </div>
                 </div>
-                <div class="" id="sevenBestRatedAdventureMoviesNext">
-                    <span class="nav-arrow">►</i></span>
-                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSciFiSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSciFiSlides(1)">&#10095;</a>
+            
             </div>
         </div>
 
-        <!-- 7 Best rated Animation movies -->
-        <h2 id="sevenBestRatedAnimationMoviesHeader">Meilleurs films d'animation</h2>
-        <div class="sevenBestRatedAnimationMoviesContainer">
-            <div class="sevenBestRatedAnimationMoviesRow">
-                <div class="" id="sevenBestRatedAnimationMoviesPrev">
-                    <span class="nav-arrow">◄</span>
-                </div>
-                <div class="sevenBestRatedAnimationMoviesSlider" id="sevenBestRatedAnimationMoviesGallery">
-                    <img id="sevenBestRatedAnimationMoviesImg1" src="" alt="">
-                    <img id="sevenBestRatedAnimationMoviesImg2" src="" alt="">
-                    <img id="sevenBestRatedAnimationMoviesImg3" src="" alt="">
-                    <img id="sevenBestRatedAnimationMoviesImg4" src="" alt="">
-                    <img id="sevenBestRatedAnimationMoviesImg5" src="" alt="">
-                    <img id="sevenBestRatedAnimationMoviesImg6" src="" alt="">
-                    <img id="sevenBestRatedAnimationMoviesImg7" src="" alt="">
-                </div>
-                <div class="" id="sevenBestRatedAnimationMoviesNext">
-                    <span class="nav-arrow">►</i></span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 7 Best rated Sci-Fi movies -->
-        <h2 id="sevenBestRatedSciFiMoviesHeader">Meilleurs films de science fiction</h2>
-        <div class="sevenBestRatedSciFiMoviesContainer">
-            <div class="sevenBestRatedSciFiMoviesRow">
-                <div class="" id="sevenBestRatedSciFiMoviesPrev">
-                    <span class="nav-arrow">◄</span>
-                </div>
-                <div class="sevenBestRatedSciFiMoviesSlider" id="sevenBestRatedSciFiMoviesGallery">
-                    <img id="sevenBestRatedSciFiMoviesImg1" src="" alt="">
-                    <img id="sevenBestRatedSciFiMoviesImg2" src="" alt="">
-                    <img id="sevenBestRatedSciFiMoviesImg3" src="" alt="">
-                    <img id="sevenBestRatedSciFiMoviesImg4" src="" alt="">
-                    <img id="sevenBestRatedSciFiMoviesImg5" src="" alt="">
-                    <img id="sevenBestRatedSciFiMoviesImg6" src="" alt="">
-                    <img id="sevenBestRatedSciFiMoviesImg7" src="" alt="">
-                </div>
-                <div class="" id="sevenBestRatedSciFiMoviesNext">
-                    <span class="nav-arrow">►</i></span>
-                </div>
-            </div>
-        </div>
-
-        <!-- App scripts
-        <script src="js/categories.js"></script>
-        <script src="js/movies.js"></script>
-        -->
         <script src="js/app.js"></script>
         
     </body>
