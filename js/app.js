@@ -185,14 +185,11 @@ function showSlides(n) {
 
 
 
-
-
 /* *********** FETCH FOR THE 7 BEST RATED ACTION MOVIES ********************** */
 
 // Action movies urls (p1 & p2):
 const urlActionP1 = "http://127.0.0.1:8000/api/v1/titles/?genre=action&sort_by=-imdb_score";
 const urlActionP2 = "http://127.0.0.1:8000/api/v1/titles/?genre=action&page=2&sort_by=-imdb_score";
-
 
 // Fecth best action movies function:
 function goFetchActionMovies() {
@@ -297,6 +294,116 @@ function showActionSlides(n) {
   slides2[slideActionIndex-1].style.display = "none";
 }
 
+
+
+/* *********** FETCH FOR THE 7 BEST RATED ANIMATION MOVIES ********************** */
+
+// Action movies urls (p1 & p2):
+const urlAnimP1 = "http://127.0.0.1:8000/api/v1/titles/?genre=Animation&sort_by=-imdb_score";
+const urlAnimP2 = "http://127.0.0.1:8000/api/v1/titles/?genre=Animation&page=2&sort_by=-imdb_score";
+
+// Fecth best aanimation movies function:
+function goFetchAnimMovies() {
+    
+    for(let i=0; i<5; i++) {
+      fetch(urlAnimP1)
+          .then(data => data.json())
+          .then(d => {
+            fetch(d.results[i].url)
+              .then(data => data.json())
+              .then(d => veryBestMovie3(d))
+              .catch(err => console.log(err.message));
+          })
+          .catch(err => console.log(err.message));
+      };
+    
+    setTimeout(function() {
+        for(let i=0; i<2; i++) {
+          fetch(urlAnimP2)
+              .then(data => data.json())
+              .then(d => {
+                fetch(d.results[i].url)
+                  .then(data => data.json())
+                  .then(d => veryBestMovie3(d))
+                  .catch(err => console.log(err.message));
+              })
+              .catch(err => console.log(err.message));
+        }
+    }, 1000);
+
+    let c = 0;
+    function veryBestMovie3(movie) {
+        
+        let modal4 = document.getElementById("animMoviesModal");
+        let imgModal4 = document.querySelector("#imgAnim"+`${c}`);
+        let span4 = document.getElementsByClassName("animMoviesClose")[0];
+
+        imgModal4.src = movie.image_url;
+        
+        imgModal4.onclick = function() {
+            
+            let w = 0;
+            if (w !== c) {
+
+                modal4.style.display = "block";
+                document.querySelector("#animMoviesImg"+`${w}`).src = movie.image_url;
+                document.querySelector("#animMoviesTitle"+`${w}`).innerHTML = movie.title;
+                document.querySelector("#animMoviesImdbScore"+`${w}`).innerHTML = '<em style="color: #0bff09;">Note: </em>' + movie.imdb_score;
+                document.querySelector("#animMoviesGenres"+`${w}`).innerHTML = '<em style="color: #0bff09;">Genre: </em>' + movie.genres;
+                document.querySelector("#animMoviesDatePublished"+`${w}`).innerHTML = '<em style="color: #0bff09;">Date de sortie: </em>' + movie.date_published;
+                document.querySelector("#animMoviesRated"+`${w}`).innerHTML = '<em style="color: #0bff09;">Rated: </em>' + movie.rated;
+                document.querySelector("#animMoviesDirectors"+`${w}`).innerHTML = '<em style="color: #0bff09;">Réalisateur: </em>' + movie.directors;
+                document.querySelector("#animMoviesActors"+`${w}`).innerHTML = '<em style="color: #0bff09;">Acteurs: </em>' + movie.actors;
+                document.querySelector("#animMoviesDuration"+`${w}`).innerHTML = '<em style="color: #0bff09;">Durée: </em>' + movie.duration + 'min';
+                document.querySelector("#animMoviesCountries"+`${w}`).innerHTML = '<em style="color: #0bff09;">Pays: </em>' + movie.countries;
+                document.querySelector("#animMoviesGlobalGrossIncome"+`${w}`).innerHTML = '<em style="color: #0bff09;">Box Office: </em>' + movie.worldwide_gross_income;
+                document.querySelector("#animMoviesShortDesc"+`${w}`).innerHTML = '<em style="color: #0bff09;">Résumé: </em>' + movie.description;
+            }
+        }
+
+        span4.onclick = function() {
+            modal4.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal4) {
+                modal4.style.display = "none";
+            }
+        }
+
+        c++;
+
+    }
+
+}
+goFetchAnimMovies();
+
+
+/* ***** Styling Sliders Best Animation Movies - START *** */
+
+var slideAnimIndex = 1;
+showAnimSlides(slideAnimIndex);
+
+// Next/previous controls
+function plusAnimSlides(n) {
+  showAnimSlides(slideAnimIndex += n);
+}
+
+// Thumbnail image controls
+function currentAnimSlide(n) {
+  showAnimSlides(slideAnimIndex = n);
+}
+
+function showAnimSlides(n) {
+  var i;
+  var slides3 = document.getElementsByClassName("myAnimSlides");
+  if (n > slides3.length) {slideAnimIndex = 1}
+  if (n < 1) {slideAnimIndex = slides3.length}
+  for (i = 0; i < slides3.length; i++) {
+    slides3[i].style.display = "block";
+  }
+  slides3[slideAnimIndex-1].style.display = "none";
+}
 
 
 
