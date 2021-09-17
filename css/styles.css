@@ -16,32 +16,9 @@ html {
 .sevenBestRatedAnimationMoviesContainer,
 .sevenBestRatedSciFiMoviesContainer {
     background-color: #f0ffff1c;
-    padding: 1rem;
+    /* padding: 0px; */
     margin: 1rem 5%;
 }
-
-/*
-.btn {
-	box-shadow:inset 0px 1px 0px 0px #f5978e;
-	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
-	background-color:#f24537;
-	border-radius:6px;
-	border:1px solid #d02718;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #810e05;
-}
-.btn:hover {
-	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
-	background-color:#c62d1f;
-}
-*/
 
 #img0,
 #img1,
@@ -61,14 +38,6 @@ h3 {
     text-align: center;
 }
 
-.row { 
-    display: flex; 
-    align-items: center; 
-} 
-
-* {
-    box-sizing: border-box;
-}
 
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -95,63 +64,12 @@ h3 {
     cursor: pointer;
 }
 
-#gallery1 img.hidden {
-    display:none;
-}
-
-.slider {
-    display: flex;
-    overflow-x:hidden;
-    position: relative;
-    margin: 0px;
-    padding: 0px 4%;
-    touch-action: pan-y;
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-/* ************* vdo container *********** */
-/* Slideshow container */
-.slideshow-container {
-    position: relative;
-    background: #f8f7f7f1;
-  }
   
-  /* Slides */
-  .mySlides {
-    display: none;
-    padding: 80px;
-    text-align: center;
-  }
-
-/* ********** prev & next buttons ********* */
-/* Next & previous buttons */
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -30px;
-    padding: 16px;
-    color: #888;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
-    position: absolute;
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
     color: white;
-  }
+}
   
 /* *********** Modal ********* */
 /* The Modal (background) */
@@ -208,8 +126,6 @@ cursor: pointer;
 /* *** */
 
 
-
-
 div.header.container {
     margin-bottom: 4em;
 }
@@ -224,6 +140,8 @@ a {
     margin: 20px;
 }
 
+a.prev, a.next { margin: 8px;}
+
 h2#bestRatedMovieHeader,
 h2#sevenBestRatedMoviesHeader,
 h2#sevenBestRatedActionMoviesHeader,
@@ -231,6 +149,10 @@ h2#sevenBestRatedAdventureMoviesHeader,
 h2#sevenBestRatedAnimationMoviesHeader,
 h2#sevenBestRatedSciFiMoviesHeader {
     margin: 4em 5% 1rem;
+}
+
+.sevenBestRatedMoviesSlider {
+    margin: 1rem 5%;
 }
 
 #bestRatedMovieShortDesc1 p {
@@ -315,4 +237,96 @@ p#bestRatedMovieShortDesc1 {
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
+}
+
+/* ***** Styling Sliders *** */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    /*max-width: 1000px;*/
+    position: relative;
+    margin: 0 5%;
+}
+  
+/* Hide the images by default 
+.mySlides {
+    display: none;
+}
+*/
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 37%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+  
+ On hover, add a black background color with a little bit see-through 
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.active {
+    background-color: #717171;
+}
+
+  /* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/** **/
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+  }
+  
+.active,
+.demo:hover {
+    opacity: 1;
 }

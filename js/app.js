@@ -119,12 +119,6 @@ function goFetchSevenBestRatedMovies() {
 
         imgModal.src = movie.image_url;
         
-        /*for (let i = 0; i < cars.length; i++) {
-            
-            text += cars[i] + "<br>";
-        
-        }*/
-
         imgModal.onclick = function() {
             
             let i = 0;
@@ -164,8 +158,59 @@ function goFetchSevenBestRatedMovies() {
 goFetchSevenBestRatedMovies();
 
 
+/* ***** Styling Sliders - START *** */
 
+/*
+var slideIndex = 1;
+showSlides(slideIndex);
 
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+*/
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "block";
+  }
+  slides[slideIndex-1].style.display = "none";
+}
+
+/* ***** Styling Sliders - END *** */
 
 
 /* DATA REQUIRED FOR MODALS:
@@ -281,85 +326,3 @@ let bestRatedUrlSciFi = "/titles/?year=&min_year=&max_year=&imdb_score=8.1&imdb_
 let veryBestMovieUrl = "/titles/?year=&min_year=&max_year=&imdb_score=9.4&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
 
 */
-
-/* ***************** PREV + NEXT BUTTONS: code 1 - Not fully functional !!! ***************
-
-const images = document.querySelectorAll('#gallery1 img');
-let imgActive = 0;
-
-// Hide the 3 last pictures
-for (let i = 4; i < images.length; i++) {
-    images[i].classList.add('hidden');
-}
-
-//Click on the 'next1' button
-document.querySelector('#next').addEventListener('click', function() {
-    next1();
-});
-
-//  Function allows go to next1 movies
-const next1 = function () {
-    for (let imgActive = 0; imgActive < 3; imgActive++) {
-        images[imgActive].classList.add('hidden');
-    }
-    for (let imgActive = 3; imgActive < images.length; imgActive++) {
-        images[imgActive].classList.remove('hidden');
-    }
-};
-
-
-//Click on the 'prev1' button
-document.querySelector('#prev').addEventListener('click', function() {
-    prev1();
-});
-
-//  Function allows to go back to previous movies
-const prev1 = function () {
-    for (let imgActive = 0; imgActive < 4; imgActive++) {
-        images[imgActive].classList.remove('hidden');
-    }
-    for (let imgActive = 4; imgActive < images.length; imgActive++) {
-        images[imgActive].classList.add('hidden');
-    }
-};
-
-// Keyboard click management
-window.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowRight'){
-        next1();
-    }
-    if (e.key === 'ArrowLeft'){
-        prev1();
-    }
-});
-*/
-
-/* ***************** PREV + NEXT BUTTONS: code 2 -- works like a charm :) ***************
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
- */ 
-
