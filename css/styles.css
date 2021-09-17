@@ -1,11 +1,20 @@
 html {
-    background-color:black;
-    color:#c5c4c4;
+    /*background-color:black;*/
+    color:#ffffff;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+body {
+    background-image: url('../img/movietheater.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin-bottom: 300px;
+}
+
 .bestRatedMovieContainer {
-    background-color: #f0ffff6e;
+    background-color: #535858d4;
     padding: 1rem;
     margin: 1rem 5%;
 }
@@ -14,7 +23,7 @@ html {
 .actionMoviesContainer,
 .animMoviesContainer,
 .scifiMoviesContainer {
-    background-color: #f0ffff1c;
+    background-color: #71717191;
     /* padding: 0px; */
     margin: 1rem 5%;
 }
@@ -360,10 +369,60 @@ p#bestRatedMovieShortDesc1 {
 
 /* Add a transparency effect for thumnbail images */
 .demo {
-    opacity: 0.6;
+    opacity: 0.7;
   }
   
 .active,
 .demo:hover {
+    opacity: 1;
+}
+
+/* Tooltip for the home link in the header */
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+  
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 100px;
+    background-color: #71717191;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
     opacity: 1;
 }
