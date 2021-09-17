@@ -42,7 +42,6 @@ function goFetchBestMovie() {
 }
 goFetchBestMovie();
 
-
 /* *********** MODAL FOR THE BEST RATED MOVIE ********* */
 
 function bestRatedMovieModal() {
@@ -70,7 +69,7 @@ function bestRatedMovieModal() {
 bestRatedMovieModal();
 
 
-/* *********** FETCH FOR THE 7 BEST MOVIES ********************** */
+/* *********** FETCH FOR THE 7 BEST RATED MOVIES ********************** */
 
 // Get the 7 best movies data regardless their category:
 let filter7BestMovies = 'sort_by=-imdb_score';
@@ -81,7 +80,7 @@ let filterPage2 = 'page=2';
 const url7BestMoviesP1 = coreApiUrl + filter7BestMovies;
 const url7BestMoviesP2 = coreApiUrl + filterPage2 + '&' + filter7BestMovies;
 
-// Fecth function:
+// Fecth 7 best rated movies function:
 function goFetchSevenBestRatedMovies() {
     
     for(let i=0; i<5; i++) {
@@ -158,33 +157,7 @@ function goFetchSevenBestRatedMovies() {
 goFetchSevenBestRatedMovies();
 
 
-/* ***** Styling Sliders - START *** */
-
-/*
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  slides[slideIndex-1].style.display = "block";
-}
-*/
+/* ***** Styling Sliders Best Rated Movies - START *** */
 
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -209,6 +182,141 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "none";
 }
+
+
+
+
+
+/* *********** FETCH FOR THE 7 BEST RATED ACTION MOVIES ********************** */
+
+// Action movies urls (p1 & p2):
+const urlActionP1 = "http://127.0.0.1:8000/api/v1/titles/?genre=action&sort_by=-imdb_score";
+const urlActionP2 = "http://127.0.0.1:8000/api/v1/titles/?genre=action&page=2&sort_by=-imdb_score";
+
+
+// Fecth best action movies function:
+function goFetchActionMovies() {
+    
+    for(let i=0; i<5; i++) {
+      fetch(urlActionP1)
+          .then(data => data.json())
+          .then(d => {
+            fetch(d.results[i].url)
+              .then(data => data.json())
+              .then(d => veryBestMovie2(d))
+              .catch(err => console.log(err.message));
+          })
+          .catch(err => console.log(err.message));
+      };
+    
+    setTimeout(function() {
+        for(let i=0; i<2; i++) {
+          fetch(urlActionP2)
+              .then(data => data.json())
+              .then(d => {
+                fetch(d.results[i].url)
+                  .then(data => data.json())
+                  .then(d => veryBestMovie2(d))
+                  .catch(err => console.log(err.message));
+              })
+              .catch(err => console.log(err.message));
+        }
+    }, 1000);
+
+    let b = 0;
+    function veryBestMovie2(movie) {
+        
+        let modal3 = document.getElementById("actionMoviesModal");
+        let imgModal3 = document.querySelector("#imgAction"+`${b}`);
+        let span3 = document.getElementsByClassName("actionMoviesClose")[0];
+
+        imgModal3.src = movie.image_url;
+        
+        imgModal3.onclick = function() {
+            
+            let y = 0;
+            if (y !== b) {
+
+                modal3.style.display = "block";
+                document.querySelector("#actionMoviesImg"+`${y}`).src = movie.image_url;
+                document.querySelector("#actionMoviesTitle"+`${y}`).innerHTML = movie.title;
+                document.querySelector("#actionMoviesImdbScore"+`${y}`).innerHTML = '<em style="color: #0bff09;">Note: </em>' + movie.imdb_score;
+                document.querySelector("#actionMoviesGenres"+`${y}`).innerHTML = '<em style="color: #0bff09;">Genre: </em>' + movie.genres;
+                document.querySelector("#actionMoviesDatePublished"+`${y}`).innerHTML = '<em style="color: #0bff09;">Date de sortie: </em>' + movie.date_published;
+                document.querySelector("#actionMoviesRated"+`${y}`).innerHTML = '<em style="color: #0bff09;">Rated: </em>' + movie.rated;
+                document.querySelector("#actionMoviesDirectors"+`${y}`).innerHTML = '<em style="color: #0bff09;">Réalisateur: </em>' + movie.directors;
+                document.querySelector("#actionMoviesActors"+`${y}`).innerHTML = '<em style="color: #0bff09;">Acteurs: </em>' + movie.actors;
+                document.querySelector("#actionMoviesDuration"+`${y}`).innerHTML = '<em style="color: #0bff09;">Durée: </em>' + movie.duration + 'min';
+                document.querySelector("#actionMoviesCountries"+`${y}`).innerHTML = '<em style="color: #0bff09;">Pays: </em>' + movie.countries;
+                document.querySelector("#actionMoviesGlobalGrossIncome"+`${y}`).innerHTML = '<em style="color: #0bff09;">Box Office: </em>' + movie.worldwide_gross_income;
+                document.querySelector("#actionMoviesShortDesc"+`${y}`).innerHTML = '<em style="color: #0bff09;">Résumé: </em>' + movie.description;
+            }
+        }
+
+        span3.onclick = function() {
+            modal3.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal3) {
+                modal3.style.display = "none";
+            }
+        }
+
+        b++;
+
+    }
+
+}
+goFetchActionMovies();
+
+
+/* ***** Styling Sliders Best Action Movies - START *** */
+
+var slideActionIndex = 1;
+showActionSlides(slideActionIndex);
+
+// Next/previous controls
+function plusActionSlides(n) {
+  showActionSlides(slideActionIndex += n);
+}
+
+// Thumbnail image controls
+function currentActionSlide(n) {
+  showActionSlides(slideActionIndex = n);
+}
+
+function showActionSlides(n) {
+  var i;
+  var slides2 = document.getElementsByClassName("myActionSlides");
+  if (n > slides2.length) {slideActionIndex = 1}
+  if (n < 1) {slideActionIndex = slides2.length}
+  for (i = 0; i < slides2.length; i++) {
+    slides2[i].style.display = "block";
+  }
+  slides2[slideActionIndex-1].style.display = "none";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ***** Styling Sliders - END *** */
 
@@ -239,71 +347,6 @@ movie.descritpion
 */
 
 
-// ****** Cateogies *************
-
-// Create Categories promise
-
-/*const promiseGetCategories = new Promise((resolve, reject) => {
-    if (typeof CATEGORIES !== 'undefined') {
-        resolve(CATEGORIES);
-    } else {
-        reject('Accès aux catégories impossible!')
-    }
-});
-*/
-// Get Categories promise
-/*
-promiseGetCategories
-    .then( c => { // 'c' for categorie
-        console.log(c);
-        console.log(c[0].title);
-        document.querySelector("#categ").innerHTML = c[0].title;
-        let list = '<ul>';
-        for (let cat of c) {
-            list += `<li>${cat.title}</li>`;
-        }
-        list += '</ul>';
-        document.querySelector("#cat").innerHTML = list;
-        return c.length;
-    })
-    .then( numberOfMovies => { 
-        console.log(`Il y a ${numberOfMovies} catégories`);
-    })
-    .catch(e => console.log(e)); //'e' for error 
-*/
-
-
-// ****** Movies *************
-/*
-// Create movies promise
-const promiseGetMovies = new Promise((resolve, reject) => {
-    if (typeof MOVIES !== 'undefined') {
-        resolve(MOVIES);
-    } else {
-        reject('Accès aux films impossible!')
-    }
-});
-
-// Get movies promise
-/*
-promiseGetMovies
-    .then( m => { //'m' for movie
-        console.log(m);
-        console.log(m[0].title);
-        document.querySelector("#categ").innerHTML = m[0].title;
-        let list = '<ul>';
-        for (let mov of m) {
-            list += `<li>${mov.title}</li>`;
-        }
-        list += '</ul>';
-        document.querySelector("#categ").innerHTML = list;
-        return m.length;
-    })
-    .then( numberOfMovies => { 
-        console.log(`Il y a ${numberOfMovies} films`);
-    })
-    .catch(e => console.log(e)); //'e' for error 
-*/
 
 // ************* FETCH URLS ****************
 /*

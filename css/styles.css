@@ -65,7 +65,10 @@ h3 {
 
   
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
+.prev:hover, .next:hover,
+.prevAction:hover, .nextAction:hover,
+.prevAnim:hover, .nextAnim:hover,
+.prevSciFi:hover, .nextSciFi:hover {
     background-color: rgba(0,0,0,0.8);
     color: white;
 }
@@ -153,7 +156,12 @@ a {
     margin: 20px;
 }
 
-a.prev, a.next { margin: 8px;}
+a.prev, a.next,
+a.prevAction, a.nextAction,
+a.prevAnim, a.nextAnim,
+a.prevSciFi, a.nextSciFi {
+    margin: 8px;
+}
 
 h2#bestRatedMovieHeader,
 h2#sevenBestRatedMoviesHeader,
@@ -261,7 +269,10 @@ p#bestRatedMovieShortDesc1 {
 }
 
 /* Slideshow container */
-.slideshow-container {
+.slideshow-container,
+.slideshow2-container,
+.slideshow3-container,
+.slideshow4-container {
     /*max-width: 1000px;*/
     position: relative;
     margin: 0 5%;
@@ -274,7 +285,10 @@ p#bestRatedMovieShortDesc1 {
 */
 
 /* Next & previous buttons */
-.prev, .next {
+.prev, .next, 
+.prevAction, .nextAction, 
+.prevAnim, .nextAnim, 
+.prevSciFi, .nextSciFi {
     cursor: pointer;
     position: absolute;
     top: 37%;
@@ -291,13 +305,21 @@ p#bestRatedMovieShortDesc1 {
 
 
 /* Position the "next button" to the right */
-.next {
+.next,
+.nextAction,
+.nextAnim,
+.nextSciFi
+ {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
   
  On hover, add a black background color with a little bit see-through 
-.prev:hover, .next:hover {
+.prev:hover, .next:hover,
+.prevAction:hover, .nextAction:hover,
+.prevAnim:hover, .nextAnim:hover,
+.prevSciFi:hover, .nextSciFi:hover
+ {
     background-color: rgba(0,0,0,0.8);
 }
 
