@@ -302,7 +302,7 @@ function showActionSlides(n) {
 const urlAnimP1 = "http://127.0.0.1:8000/api/v1/titles/?genre=Animation&sort_by=-imdb_score";
 const urlAnimP2 = "http://127.0.0.1:8000/api/v1/titles/?genre=Animation&page=2&sort_by=-imdb_score";
 
-// Fecth best aanimation movies function:
+// Fecth best animation movies function:
 function goFetchAnimMovies() {
     
     for(let i=0; i<5; i++) {
@@ -406,73 +406,112 @@ function showAnimSlides(n) {
 }
 
 
+/* *********** FETCH FOR THE 7 BEST RATED SCI-FI MOVIES ********************** */
+
+// Action movies urls (p1 & p2):
+const urlSciFiP1 = "http://127.0.0.1:8000/api/v1/titles/?genre=sci-fi&sort_by=-imdb_score";
+const urlSciFiP2 = "http://127.0.0.1:8000/api/v1/titles/?genre=sci-fi&page=2&sort_by=-imdb_score";
+
+// Fecth best SciFi movies function:
+function goFetchSciFiMovies() {
+    
+    for(let i=0; i<5; i++) {
+      fetch(urlSciFiP1)
+          .then(data => data.json())
+          .then(d => {
+            fetch(d.results[i].url)
+              .then(data => data.json())
+              .then(d => veryBestMovie4(d))
+              .catch(err => console.log(err.message));
+          })
+          .catch(err => console.log(err.message));
+      };
+    
+    setTimeout(function() {
+        for(let i=0; i<2; i++) {
+          fetch(urlSciFiP2)
+              .then(data => data.json())
+              .then(d => {
+                fetch(d.results[i].url)
+                  .then(data => data.json())
+                  .then(d => veryBestMovie4(d))
+                  .catch(err => console.log(err.message));
+              })
+              .catch(err => console.log(err.message));
+        }
+    }, 1000);
+
+    let d = 0;
+    function veryBestMovie4(movie) {
+        
+        let modal5 = document.getElementById("scifiMoviesModal");
+        let imgModal5 = document.querySelector("#imgSciFi"+`${d}`);
+        let span5 = document.getElementsByClassName("scifiMoviesClose")[0];
+
+        imgModal5.src = movie.image_url;
+        
+        imgModal5.onclick = function() {
+            
+            let z = 0;
+            if (z !== d) {
+
+                modal5.style.display = "block";
+                document.querySelector("#scifiMoviesImg"+`${z}`).src = movie.image_url;
+                document.querySelector("#scifiMoviesTitle"+`${z}`).innerHTML = movie.title;
+                document.querySelector("#scifiMoviesImdbScore"+`${z}`).innerHTML = '<em style="color: #0bff09;">Note: </em>' + movie.imdb_score;
+                document.querySelector("#scifiMoviesGenres"+`${z}`).innerHTML = '<em style="color: #0bff09;">Genre: </em>' + movie.genres;
+                document.querySelector("#scifiMoviesDatePublished"+`${z}`).innerHTML = '<em style="color: #0bff09;">Date de sortie: </em>' + movie.date_published;
+                document.querySelector("#scifiMoviesRated"+`${z}`).innerHTML = '<em style="color: #0bff09;">Rated: </em>' + movie.rated;
+                document.querySelector("#scifiMoviesDirectors"+`${z}`).innerHTML = '<em style="color: #0bff09;">Réalisateur: </em>' + movie.directors;
+                document.querySelector("#scifiMoviesActors"+`${z}`).innerHTML = '<em style="color: #0bff09;">Acteurs: </em>' + movie.actors;
+                document.querySelector("#scifiMoviesDuration"+`${z}`).innerHTML = '<em style="color: #0bff09;">Durée: </em>' + movie.duration + 'min';
+                document.querySelector("#scifiMoviesCountries"+`${z}`).innerHTML = '<em style="color: #0bff09;">Pays: </em>' + movie.countries;
+                document.querySelector("#scifiMoviesGlobalGrossIncome"+`${z}`).innerHTML = '<em style="color: #0bff09;">Box Office: </em>' + movie.worldwide_gross_income;
+                document.querySelector("#scifiMoviesShortDesc"+`${z}`).innerHTML = '<em style="color: #0bff09;">Résumé: </em>' + movie.description;
+            }
+        }
+
+        span5.onclick = function() {
+            modal5.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal5) {
+                modal5.style.display = "none";
+            }
+        }
+
+        d++;
+
+    }
+
+}
+goFetchSciFiMovies();
 
 
+/* ***** Styling Sliders Best SciFi Movies - START *** */
 
+var slideSciFiIndex = 1;
+showSciFiSlides(slideSciFiIndex);
 
+// Next/previous controls
+function plusSciFiSlides(n) {
+  showSciFiSlides(slideSciFiIndex += n);
+}
 
+// Thumbnail image controls
+function currentSciFiSlide(n) {
+  showSciFiSlides(slideSciFiIndex = n);
+}
 
+function showSciFiSlides(n) {
+  var i;
+  var slides4 = document.getElementsByClassName("mySciFiSlides");
+  if (n > slides4.length) {slideSciFiIndex = 1}
+  if (n < 1) {slideSciFiIndex = slides4.length}
+  for (i = 0; i < slides4.length; i++) {
+    slides4[i].style.display = "block";
+  }
+  slides4[slideSciFiIndex-1].style.display = "none";
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* ***** Styling Sliders - END *** */
-
-
-/* DATA REQUIRED FOR MODALS:
-movie.image_url
-movie.imdb_score
-movie.title
-movie.genres
-movie.date_published
-movie.rated
-movie.directors
-movie.actors
-movie.duration
-movie.countries
-movie.worldwide_gross_income
-movie.descritpion
-*/
-
-
-//****************** CATEGORIES URLS ************************ 
-/*
-* Best movie: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score
-* comedy: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=comedy
-* sci-fi: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=sci-fi
-* biography: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=Biography
-* animation: http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genre=Animation
-*/
-
-
-
-// ************* FETCH URLS ****************
-/*
-// Base url
-let url = 'http://localhost:8000/api/v1';
-
-// best rated by categ: Adventure, 9 pax rated at 8.5
-let bestRatedUrlAdventure = '/titles/?year=&min_year=&max_year=&imdb_score=8.5&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Adventure&genre_contains=&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains==';
-
-//best rate by categ: Action, 7 pax rated at 8.6
-let bestRatedUrlAction = "/titles/?year=&min_year=&max_year=&imdb_score=8.6&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Action&genre_contains=&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
-
-//best rate by categ: Animation, 7 pax rated at 8.3
-let bestRatedUrlAnimation = "/titles/?year=&min_year=&max_year=&imdb_score=8.3&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Animation&genre_contains=&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
-
-//best rate by categ: Sci-Fi, 10 pax rated at 8.1
-let bestRatedUrlSciFi = "/titles/?year=&min_year=&max_year=&imdb_score=8.1&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Sci-Fi&genre_contains=&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
-
-// the very best movie(s) 3 rated at 9.4
-let veryBestMovieUrl = "/titles/?year=&min_year=&max_year=&imdb_score=9.4&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
-
-*/
